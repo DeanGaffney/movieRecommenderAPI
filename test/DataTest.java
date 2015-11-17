@@ -43,11 +43,11 @@ public class DataTest
 	@Test
 	public void testXMLSerializer() throws Exception
 	{ 
-		File usersFile = new File("data/users.dat");
+		File usersFile = new File("testdatastore.xml");
 		Serializer serializer = new XMLSerializer(usersFile);
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
-
-		In inUsers = new In(usersFile);
+		
+		In inUsers = new In("data/users.dat");
 
 		//each field is separated(delimited) by a '|'
 		String delims = "[|]";
@@ -60,15 +60,6 @@ public class DataTest
 			String[] userTokens = userDetails.split(delims);
 			movieRecommender.createUser(Long.parseLong(userTokens[0]),userTokens[1],userTokens[2],Integer.parseInt(userTokens[3]),userTokens[4],userTokens[5]);
 			// output user data to console.
-			if (movieRecommender.getUsers()!=null) 
-			{
-				System.out.println(movieRecommender.getUsers().size());
-			}
-			else
-			{
-				throw new Exception("Invalid member length: "+userTokens.length);
-			}
-
 		}
 		for(int i = 0;i<=movieRecommender.getUsers().size();i++)
 		{

@@ -13,7 +13,10 @@ public class Main
 		File usersFile = new File("users.xml");
 		Serializer serializer = new XMLSerializer(usersFile);
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
-
+		if (usersFile.isFile())
+	    {
+	      movieRecommender.load();
+	    }
 		In inUsers = new In("data/users.dat");
 
 		//each field is separated(delimited) by a '|'
