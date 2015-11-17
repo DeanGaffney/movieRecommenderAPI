@@ -2,13 +2,6 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 
-
-
-
-
-
-
-
 import models.User;
 
 import org.junit.After;
@@ -75,7 +68,18 @@ public class DataTest
 		for (User user : movieRecommender.getUsers())
 		{
 			assertTrue (movieRecommender2.getUsers().contains(user));
-		}
+		}	
+		
+		movieRecommender.deleteUsers();
+		assertNotEquals(movieRecommender.getUsers().size(),movieRecommender2.getUsers().size());
+		
+		movieRecommender2.deleteUsers();
+		assertEquals(movieRecommender.getUsers().size(),movieRecommender2.getUsers().size());
 		deleteFile ("testdatastore.xml");
+	}
+
+	private void assertEquals(int i, Object deleteUsers) {
+		// TODO Auto-generated method stub
+		
 	}
 }
