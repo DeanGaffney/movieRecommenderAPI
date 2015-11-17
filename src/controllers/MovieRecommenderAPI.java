@@ -44,7 +44,7 @@ public class MovieRecommenderAPI
 	  
 	  public  void deleteUsers() 
 	  {
-	    userIndex.clear();
+	    userIndex.clear();	
 	  }
 	  
 	  public User createUser(Long id,String firstName, String lastName,int age,String gender,String occupation) 

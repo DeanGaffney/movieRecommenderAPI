@@ -10,11 +10,11 @@ public class Main
 {
 	public static void main(String[] args) throws Exception 
 	{
-		File usersFile = new File("data/users.dat");
+		File usersFile = new File("users.xml");
 		Serializer serializer = new XMLSerializer(usersFile);
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
 
-		In inUsers = new In(usersFile);
+		In inUsers = new In("data/users.dat");
 
 		//each field is separated(delimited) by a '|'
 		String delims = "[|]";
