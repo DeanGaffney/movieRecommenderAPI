@@ -27,12 +27,6 @@ public class DataTest
 		}
 	}
 
-	void importData() throws Exception
-	{
-
-	}
-
-
 	@Test
 	public void testXMLSerializer() throws Exception
 	{ 
@@ -76,10 +70,5 @@ public class DataTest
 		movieRecommender2.deleteUsers();
 		assertEquals(movieRecommender.getUsers().size(),movieRecommender2.getUsers().size());
 		deleteFile ("testdatastore.xml");
-	}
-
-	private void assertEquals(int i, Object deleteUsers) {
-		// TODO Auto-generated method stub
-		
 	}
 }

@@ -53,11 +53,6 @@ public class MovieRecommenderAPI
 	    userIndex.put(user.id, user);
 	    return user;
 	  }
-	  
-	  public User getUserByEmail(String email) 
-	  {
-	    return emailIndex.get(email);
-	  }
 
 	  public User getUser(Long id) 
 	  {
