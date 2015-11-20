@@ -2,11 +2,13 @@ package controllers;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.google.common.base.Optional;
 
 import models.Movie;
+import models.Rating;
 import models.User;
 import utils.Serializer;
 
@@ -15,7 +17,7 @@ public class MovieRecommenderAPI
 	private Serializer serializer;
 
 	private Map<Long,User>   userIndex = new HashMap<>();
-	public Map<Long, Movie> movieIndex = new HashMap<>();
+	private Map<Long, Movie> movieIndex = new HashMap<>();
 
 	public MovieRecommenderAPI()
 	{}
@@ -28,12 +30,14 @@ public class MovieRecommenderAPI
 	public void load() throws Exception
 	{
 		serializer.read();
-		userIndex = (Map<Long, User>)     serializer.pop();
+		userIndex = (Map<Long, User>)	serializer.pop();
+		movieIndex = (Map<Long, Movie>) serializer.pop();
 	}
 
 	public void store() throws Exception
 	{
 		serializer.push(userIndex);
+		serializer.push(movieIndex);
 		serializer.write(); 
 	}
 
@@ -53,7 +57,7 @@ public class MovieRecommenderAPI
 		userIndex.put(user.id, user);
 		return user;
 	}
-	
+
 
 	public User createUser(String firstName, String lastName, int age, String gender, String occupation)
 	{
@@ -79,5 +83,24 @@ public class MovieRecommenderAPI
 		movieIndex.put(movie.id, movie);
 		return movie;
 	}
+
+	public Collection<Movie> getMovies ()
+	{
+		return movieIndex.values();
+	}
+
+	public Movie getMovie(Long movieID)
+	{
+		return movieIndex.get(movieID);
+	}
+
+
+	public Collection<Rating> getUserRatings(Long userID)
+	{
+		User user = userIndex.get(userID);
+		return user.ratings;
+	}
 }
+
+
 
