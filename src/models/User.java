@@ -1,9 +1,9 @@
 package models;
 
-import static com.google.common.base.MoreObjects.toStringHelper;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.HashMap;
-import java.util.Map;
+import utils.ToJsonString;
 
 import com.google.common.base.Objects;
 
@@ -16,9 +16,9 @@ public class User
 	public int age;
 	public String gender;
 	public String occupation;
-	
 
-	//public Map<Long, Rating> ratings = new HashMap<>();
+
+	public List<Rating> ratings = new ArrayList<>();
 
 
 	public User()
@@ -35,21 +35,27 @@ public class User
 		this.occupation = occupation;
 	}
 
+
+
+	public User(String firstName, String lastName, int age, String gender,String occupation) 
+	{
+		this.id = counter++;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.gender = gender;
+		this.occupation = occupation;
+	}
+
 	public String toString()
 	{
-		return toStringHelper(this).addValue(id)
-				.addValue(firstName)
-				.addValue(lastName)
-				.addValue(age)
-				.addValue(gender)
-				.addValue(occupation)                               
-				.toString();
+		return new ToJsonString(getClass(), this).toString();
 	}
 
 	@Override  
 	public int hashCode()  
 	{  
-		return Objects.hashCode(this.lastName, this.firstName,this.age,this.gender,this.occupation);  
+		return Objects.hashCode(this.firstName, this.lastName,this.age,this.gender,this.occupation);  
 	}  
 
 	@Override
@@ -62,7 +68,8 @@ public class User
 					&&  Objects.equal(lastName,    other.lastName)
 					&& Objects.equal(age,			other.age)
 					&& Objects.equal(gender, other.gender)
-					&&  Objects.equal(occupation,       other.occupation);
+					&&  Objects.equal(occupation,       other.occupation)
+					&&	Objects.equal(ratings,			other.ratings);
 		}
 		else
 		{

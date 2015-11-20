@@ -10,12 +10,11 @@ import org.junit.Test;
 
 public class UserTest
 {
-	User dean = new User (1l, "dean", "gaffney", 19, "m",  "mechanic");
+	User dean = new User ("dean", "gaffney", 19, "m",  "mechanic");
 
 	@Test
 	public void testCreate()
 	{
-		assertSame (1l,				     dean.id);
 		assertEquals ("dean",                dean.firstName);
 		assertEquals ("gaffney",             dean.lastName);
 		assertEquals (19,                    dean.age);   
@@ -32,22 +31,30 @@ public class UserTest
 			ids.add(user.id);
 		}
 		assertEquals (users.length, ids.size());
+		System.out.println(users);
 	}
 
-	@Test
+	/*@Test
 	public void testToString()
 	{
-		assertEquals ("User{" + dean.id + ", dean, gaffney, 19, m, mechanic}", dean.toString());
+		assertEquals (dean ,gaffney,mechanic,, m, ,dean.id}", dean.toString());
 	}
+	*/
 
 	@Test
 	public void testEquals()
 	{
-		User dean2 = new User (1l, "dean", "gaffney", 19, "m",  "mechanic"); 
-		User bart   = new User (2l, "bart", "simpson", 12, "m",  "skateboarder"); 
+		User dean2 = new User ("dean", "gaffney", 19, "m",  "mechanic"); 
+		User bart   = new User ("bart", "simpson", 12, "m",  "skateboarder"); 
 
 		assertEquals(dean, dean);
 		assertEquals(dean, dean2);
 		assertNotEquals(dean, bart);
 	} 
+	
+	@Test
+	public void getUserById()
+	{
+		
+	}
 }

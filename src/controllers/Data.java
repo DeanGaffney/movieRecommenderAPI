@@ -33,8 +33,7 @@ public class Data
 
 			// parse user details string
 			String[] userTokens = userDetails.split(delims);
-			movieRecommender.createUser(Long.parseLong(userTokens[0]),userTokens[1],userTokens[2],Integer.parseInt(userTokens[3]),userTokens[4],userTokens[5]);
-			// output user data to console.
+			movieRecommender.createFileUser(Long.parseLong(userTokens[0]),userTokens[1],userTokens[2],Integer.parseInt(userTokens[3]),userTokens[4],userTokens[5]);			// output user data to console.
 			if (movieRecommender.getUsers()!=null) 
 			{
 				System.out.println(movieRecommender.getUsers().size());
