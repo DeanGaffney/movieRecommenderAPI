@@ -6,42 +6,22 @@ import utils.Serializer;
 import utils.XMLSerializer;
 import edu.princeton.cs.introcs.In;
 
-import asg.cliche.Shell;
-import asg.cliche.ShellFactory;
-public class Main
+public class Data 
 {
-	public MovieRecommenderAPI movieRecommender;
-
-	public Main() throws Exception
+	private File usersFile = new File("data.xml");
+	
+	public Data()
 	{
-		File datastore = new File("datastore.xml");
-		Serializer serializer = new XMLSerializer(datastore);
-
-		movieRecommender = new MovieRecommenderAPI(serializer);
-		if (datastore.isFile())
-		{
-			movieRecommender.load();
-		}
+		
 	}
-
-	public static void main(String[] args) throws Exception
+	public void importUser() throws Exception
 	{
-		Main main = new Main();
-
-		Shell shell = ShellFactory.createConsoleShell("pm", "Welcome to Movie-Recommender console - ?help for instructions", main);
-		shell.commandLoop();
-
-		main.movieRecommender.store();
-	}
-
-
-/*File usersFile = new File("users.xml");
 		Serializer serializer = new XMLSerializer(usersFile);
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
 		if (usersFile.isFile())
-	    {
-	      movieRecommender.load();
-	    }
+		{
+			movieRecommender.load();
+		}
 		In inUsers = new In("data/users.dat");
 
 		//each field is separated(delimited) by a '|'
@@ -71,8 +51,5 @@ public class Main
 		}
 		movieRecommender.store();
 	}
- */
-
 }
-
 
