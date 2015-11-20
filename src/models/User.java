@@ -33,6 +33,8 @@ public class User
 		this.age = age;
 		this.gender = gender;
 		this.occupation = occupation;
+		
+		counter++;
 	}
 
 

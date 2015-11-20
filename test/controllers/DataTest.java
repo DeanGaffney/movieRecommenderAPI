@@ -35,7 +35,7 @@ public class DataTest
 		Serializer serializer = new XMLSerializer(usersFile);
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
 		
-		In inUsers = new In("data/users.dat");
+		In inUsers = new In("data/users5.dat");
 
 		//each field is separated(delimited) by a '|'
 		String delims = "[|]";

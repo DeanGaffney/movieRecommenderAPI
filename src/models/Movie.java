@@ -13,6 +13,7 @@ public class Movie
 	public String title;
 	public String year;
 	public String url;
+	
 	public Movie(String title, String year, String url)
 	{
 		this.id = counter++;
@@ -20,6 +21,16 @@ public class Movie
 		this.year = year;
 		this.url = url;
 	}
+
+	public Movie(Long id, String title, String year, String url) 
+	{
+		this.id = id;
+		this.title = title;
+		this.year = year;
+		this.url = url;
+	}
+
+
 
 	@Override
 	public String toString()
