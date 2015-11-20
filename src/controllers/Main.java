@@ -64,6 +64,11 @@ public class Main
 		Collection<User> users = movieRecommender.getUsers();
 		System.out.println(users);
 	}
+	@Command(description="Get a user by id")
+	public void getUser(@Param(name = "id")Long id)
+	{
+		movieRecommender.getUser(id);
+	}
 
 	@Command(description="Add a new User")
 	public void addUser (@Param(name="first name") String firstName, @Param(name="last name") String lastName,
