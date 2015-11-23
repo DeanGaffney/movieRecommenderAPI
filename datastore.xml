@@ -4,7 +4,7 @@
     <vector>
       <default>
         <capacityIncrement>0</capacityIncrement>
-        <elementCount>1</elementCount>
+        <elementCount>2</elementCount>
         <elementData>
           <map>
             <entry>
@@ -68,7 +68,7 @@
               </models.User>
             </entry>
           </map>
-          <null/>
+          <long>6</long>
           <null/>
           <null/>
           <null/>

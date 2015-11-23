@@ -1,7 +1,12 @@
 package controllers;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
+import models.Movie;
+import models.User;
 import utils.Serializer;
 import utils.XMLSerializer;
 import edu.princeton.cs.introcs.In;
@@ -14,15 +19,11 @@ public class Data
 	{
 		
 	}
-	public void importUser() throws Exception
+	public List<User> importUsers(String fileName) throws Exception
 	{
-		Serializer serializer = new XMLSerializer(usersFile);
-		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
-		if (usersFile.isFile())
-		{
-			movieRecommender.load();
-		}
-		In inUsers = new In("data/users.dat");
+		List <User> users = new ArrayList<User>();
+		
+		In inUsers = new In(fileName);
 
 		//each field is separated(delimited) by a '|'
 		String delims = "[|]";
@@ -33,10 +34,10 @@ public class Data
 
 			// parse user details string
 			String[] userTokens = userDetails.split(delims);
-			movieRecommender.createFileUser(Long.parseLong(userTokens[0]),userTokens[1],userTokens[2],Integer.parseInt(userTokens[3]),userTokens[4],userTokens[5]);			// output user data to console.
-			if (movieRecommender.getUsers()!=null) 
+			users.add(new User(Long.parseLong(userTokens[0]),userTokens[1],userTokens[2],Integer.parseInt(userTokens[3]),userTokens[4],userTokens[5]));			// output user data to console.
+			if (users!=null) 
 			{
-				System.out.println(movieRecommender.getUsers().size());
+				System.out.println(users.size());
 			}
 			else
 			{
@@ -44,11 +45,17 @@ public class Data
 			}
 
 		}
-		for(int i = 0;i<=movieRecommender.getUsers().size();i++)
+		for(int i = 0;i<users.size();i++)
 		{
-			System.out.println(movieRecommender.getUser(Long.valueOf(i)));
+			System.out.println(users.get(i));
 		}
-		movieRecommender.store();
+		return users;
+	}
+	
+	public Collection<Movie> importMovies(File fileName)
+	{
+		return null;
+		
 	}
 }
 

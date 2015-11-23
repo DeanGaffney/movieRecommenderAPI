@@ -18,6 +18,7 @@ import edu.princeton.cs.introcs.In;
 public class DataTest 
 {
 	MovieRecommenderAPI movieRecommender;
+	Data data;
 
 	void deleteFile(String fileName)
 	{
@@ -35,7 +36,8 @@ public class DataTest
 		Serializer serializer = new XMLSerializer(usersFile);
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
 		
-		In inUsers = new In("data/users5.dat");
+		data.importUsers("data/users5");
+		/*In inUsers = new In("data/users5.dat");
 
 		//each field is separated(delimited) by a '|'
 		String delims = "[|]";
@@ -52,7 +54,7 @@ public class DataTest
 		for(int i = 0;i<=movieRecommender.getUsers().size();i++)
 		{
 			System.out.println(movieRecommender.getUser(Long.valueOf(i)));
-		}
+		}*/
 	
 		movieRecommender.store();
 	

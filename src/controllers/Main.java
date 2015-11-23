@@ -1,7 +1,9 @@
 package controllers;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import edu.princeton.cs.introcs.In;
 import utils.Serializer;
@@ -15,7 +17,7 @@ import asg.cliche.ShellFactory;
 public class Main
 {
 	public MovieRecommenderAPI movieRecommender;
-
+	public Data data = new Data();
 	public Main() throws Exception
 	{
 		File datastore = new File("datastore.xml");
@@ -28,42 +30,24 @@ public class Main
 		}
 		else
 		{
-			In inUsers = new In("data/users5.dat");
-
-			//each field is separated(delimited) by a '|'
-			String delims = "[|]";
-			while (!inUsers.isEmpty()) 
+			List<User> users  = data.importUsers("data/users5.dat");
+			for(User user:users)
 			{
-				// get user and rating from data source
-				String userDetails = inUsers.readLine();
-
-				// parse user details string
-				String[] userTokens = userDetails.split(delims);
-				movieRecommender.createFileUser(Long.parseLong(userTokens[0]),userTokens[1],userTokens[2],Integer.parseInt(userTokens[3]),userTokens[4],userTokens[5]);			// output user data to console.
-				if (movieRecommender.getUsers()!=null) 
-				{
-					System.out.println(movieRecommender.getUsers().size());
-				}
-				else
-				{
-					throw new Exception("Invalid member length: "+userTokens.length);
-				}
-
+				movieRecommender.createFileUser(user);
 			}
-			for(int i = 0;i<=movieRecommender.getUsers().size();i++)
-			{
-				System.out.println(movieRecommender.getUser(Long.valueOf(i)));
-			}
+			
+			
 			movieRecommender.store();
 		}
 	}
-
+	//returns all users and details of users
 	@Command(description="Get all users details")
 	public void getUsers ()
 	{
 		Collection<User> users = movieRecommender.getUsers();
 		System.out.println(users);
 	}
+	//returns a user by id
 	@Command(description="Get a user by id")
 	public void getUser(@Param(name = "id")Long id)
 	{

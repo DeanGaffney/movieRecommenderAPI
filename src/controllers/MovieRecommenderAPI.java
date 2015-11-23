@@ -30,14 +30,16 @@ public class MovieRecommenderAPI
 	public void load() throws Exception
 	{
 		serializer.read();
+		User.counter = (Long) serializer.pop();
 		userIndex = (Map<Long, User>)	serializer.pop();
-		movieIndex = (Map<Long, Movie>) serializer.pop();
+		//movieIndex = (Map<Long, Movie>) serializer.pop();
 	}
 
 	public void store() throws Exception
 	{
 		serializer.push(userIndex);
-		serializer.push(movieIndex);
+		serializer.push(User.counter);
+		//serializer.push(movieIndex);
 		serializer.write(); 
 	}
 
@@ -51,9 +53,8 @@ public class MovieRecommenderAPI
 		userIndex.clear();
 	}
 
-	public User createFileUser(Long id,String firstName, String lastName, int age, String gender, String occupation)
+	public User createFileUser(User user)
 	{
-		User user = new User(id,firstName, lastName, age, gender, occupation);
 		userIndex.put(user.id, user);
 		return user;
 	}
@@ -69,11 +70,13 @@ public class MovieRecommenderAPI
 
 	public User getUser(Long id) 
 	{
+		System.out.println(userIndex.get(id));
 		return userIndex.get(id);
 	}
 
 	public void deleteUser(Long id) 
 	{
+		System.out.println("User id: " + userIndex.get(id).id + " First Name: "+ userIndex.get(id).firstName + " has been deleted");
 		User user = userIndex.remove(id);
 	}
 
@@ -93,7 +96,6 @@ public class MovieRecommenderAPI
 	{
 		return movieIndex.get(movieID);
 	}
-
 
 	public Collection<Rating> getUserRatings(Long userID)
 	{
