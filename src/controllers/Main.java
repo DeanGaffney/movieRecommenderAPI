@@ -8,6 +8,7 @@ import java.util.List;
 import edu.princeton.cs.introcs.In;
 import utils.Serializer;
 import utils.XMLSerializer;
+import models.Movie;
 import models.User;
 import asg.cliche.Command;
 import asg.cliche.Param;
@@ -36,7 +37,11 @@ public class Main
 				movieRecommender.createFileUser(user);
 			}
 			
-			
+			List<Movie> movies = data.importMovies("data/items5.dat");
+			for(Movie movie : movies)
+			{
+				movieRecommender.addMovie(movie);
+			}
 			movieRecommender.store();
 		}
 	}
@@ -65,6 +70,13 @@ public class Main
 	public void removeUser (@Param(name="id") Long id)
 	{
 		movieRecommender.deleteUser(id);
+	}
+	
+	@Command(description = "List all movies")
+	public void getMovies()
+	{
+		Collection<Movie> movies = movieRecommender.getMovies();
+		System.out.println(movies);
 	}
 	@Command(description="Add a Movie")
 	public void addMovie (@Param(name="title") String title, @Param(name="year") String year, @Param(name="url") String url)

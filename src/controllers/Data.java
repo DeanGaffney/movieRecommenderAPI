@@ -14,15 +14,15 @@ import edu.princeton.cs.introcs.In;
 public class Data 
 {
 	private File usersFile = new File("data.xml");
-	
+
 	public Data()
 	{
-		
+
 	}
 	public List<User> importUsers(String fileName) throws Exception
 	{
 		List <User> users = new ArrayList<User>();
-		
+
 		In inUsers = new In(fileName);
 
 		//each field is separated(delimited) by a '|'
@@ -51,11 +51,38 @@ public class Data
 		}
 		return users;
 	}
-	
-	public Collection<Movie> importMovies(File fileName)
+
+	public List<Movie> importMovies(String fileName) throws Exception
 	{
-		return null;
-		
+		List <Movie> movies = new ArrayList<Movie>();
+
+		In inUsers = new In(fileName);
+
+		//each field is separated(delimited) by a '|'
+		String delims = "[|]";
+		while (!inUsers.isEmpty()) 
+		{
+			// get user and rating from data source
+			String movieDetails = inUsers.readLine();
+
+			// parse user details string
+			String[] movieTokens = movieDetails.split(delims);
+			movies.add(new Movie(Long.parseLong(movieTokens[0]),movieTokens[1],movieTokens[2],movieTokens[3]));			// output user data to console.
+			if (movies!=null) 
+			{
+				System.out.println(movies.size());
+			}
+			else
+			{
+				throw new Exception("Invalid member length: "+movieTokens.length);
+			}
+
+		}
+		for(int i = 0;i<movies.size();i++)
+		{
+			System.out.println(movies.get(i));
+		}
+		return movies;	
 	}
 }
 

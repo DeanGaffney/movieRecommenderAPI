@@ -86,6 +86,12 @@ public class MovieRecommenderAPI
 		movieIndex.put(movie.id, movie);
 		return movie;
 	}
+	
+	public Movie addMovie(Movie movie)
+	{
+		movieIndex.put(movie.id, movie);
+		return movie;
+	}
 
 	public Collection<Movie> getMovies ()
 	{
