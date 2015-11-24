@@ -9,7 +9,7 @@ import utils.ToJsonString;
 
 public class Movie
 {
-	static Long counter = 1l;
+	public static Long counter = 1l;
 
 	public Long id;
 
@@ -33,6 +33,8 @@ public class Movie
 		this.title = title;
 		this.year = year;
 		this.url = url;
+		
+		counter++;
 	}
 
 

@@ -4,7 +4,7 @@
     <vector>
       <default>
         <capacityIncrement>0</capacityIncrement>
-        <elementCount>2</elementCount>
+        <elementCount>4</elementCount>
         <elementData>
           <map>
             <entry>
@@ -67,10 +67,133 @@
                 <ratings/>
               </models.User>
             </entry>
+            <entry>
+              <long>6</long>
+              <models.User>
+                <id>6</id>
+                <firstName>dean</firstName>
+                <lastName>gaffney</lastName>
+                <age>19</age>
+                <gender>m</gender>
+                <occupation>mehcnaic</occupation>
+                <ratings/>
+              </models.User>
+            </entry>
           </map>
-          <long>6</long>
-          <null/>
-          <null/>
+          <long>7</long>
+          <map>
+            <entry>
+              <long>1</long>
+              <models.Movie>
+                <id>1</id>
+                <title>Toy Story (1995)</title>
+                <year>01-Jan-1995</year>
+                <url>http://us.imdb.com/M/title-exact?Toy%20Story%20(1995)</url>
+                <ratings/>
+              </models.Movie>
+            </entry>
+            <entry>
+              <long>2</long>
+              <models.Movie>
+                <id>2</id>
+                <title>GoldenEye (1995)</title>
+                <year>01-Jan-1995</year>
+                <url>http://us.imdb.com/M/title-exact?GoldenEye%20(1995)</url>
+                <ratings/>
+              </models.Movie>
+            </entry>
+            <entry>
+              <long>3</long>
+              <models.Movie>
+                <id>3</id>
+                <title>Four Rooms (1995)</title>
+                <year>01-Jan-1995</year>
+                <url>http://us.imdb.com/M/title-exact?Four%20Rooms%20(1995)</url>
+                <ratings/>
+              </models.Movie>
+            </entry>
+            <entry>
+              <long>4</long>
+              <models.Movie>
+                <id>4</id>
+                <title>Get Shorty (1995)</title>
+                <year>01-Jan-1995</year>
+                <url>http://us.imdb.com/M/title-exact?Get%20Shorty%20(1995)</url>
+                <ratings/>
+              </models.Movie>
+            </entry>
+            <entry>
+              <long>5</long>
+              <models.Movie>
+                <id>5</id>
+                <title>Copycat (1995)</title>
+                <year>01-Jan-1995</year>
+                <url>http://us.imdb.com/M/title-exact?Copycat%20(1995)</url>
+                <ratings/>
+              </models.Movie>
+            </entry>
+            <entry>
+              <long>6</long>
+              <models.Movie>
+                <id>6</id>
+                <title>Shanghai Triad (Yao a yao yao dao waipo qiao) (1995)</title>
+                <year>01-Jan-1995</year>
+                <url>http://us.imdb.com/Title?Yao+a+yao+yao+dao+waipo+qiao+(1995)</url>
+                <ratings/>
+              </models.Movie>
+            </entry>
+            <entry>
+              <long>7</long>
+              <models.Movie>
+                <id>7</id>
+                <title>Twelve Monkeys (1995)</title>
+                <year>01-Jan-1995</year>
+                <url>http://us.imdb.com/M/title-exact?Twelve%20Monkeys%20(1995)</url>
+                <ratings/>
+              </models.Movie>
+            </entry>
+            <entry>
+              <long>8</long>
+              <models.Movie>
+                <id>8</id>
+                <title>Babe (1995)</title>
+                <year>01-Jan-1995</year>
+                <url>http://us.imdb.com/M/title-exact?Babe%20(1995)</url>
+                <ratings/>
+              </models.Movie>
+            </entry>
+            <entry>
+              <long>9</long>
+              <models.Movie>
+                <id>9</id>
+                <title>Dead Man Walking (1995)</title>
+                <year>01-Jan-1995</year>
+                <url>http://us.imdb.com/M/title-exact?Dead%20Man%20Walking%20(1995)</url>
+                <ratings/>
+              </models.Movie>
+            </entry>
+            <entry>
+              <long>10</long>
+              <models.Movie>
+                <id>10</id>
+                <title>Richard III (1995)</title>
+                <year>22-Jan-1996</year>
+                <url>http://us.imdb.com/M/title-exact?Richard%20III%20(1995)</url>
+                <ratings/>
+              </models.Movie>
+            </entry>
+            <entry>
+              <long>11</long>
+              <models.Movie>
+                <id>11</id>
+                <title>deansMovie</title>
+                <year>2000</year>
+                <url>url</url>
+                <ratings/>
+              </models.Movie>
+            </entry>
+          </map>
+          <long>12</long>
           <null/>
           <null/>
           <null/>

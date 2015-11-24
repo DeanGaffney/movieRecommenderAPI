@@ -30,16 +30,19 @@ public class MovieRecommenderAPI
 	public void load() throws Exception
 	{
 		serializer.read();
+		Movie.counter = (Long) serializer.pop();
+		movieIndex = (Map<Long, Movie>) serializer.pop();
+
 		User.counter = (Long) serializer.pop();
 		userIndex = (Map<Long, User>)	serializer.pop();
-		//movieIndex = (Map<Long, Movie>) serializer.pop();
 	}
 
 	public void store() throws Exception
 	{
 		serializer.push(userIndex);
 		serializer.push(User.counter);
-		//serializer.push(movieIndex);
+		serializer.push(movieIndex);
+		serializer.push(Movie.counter);
 		serializer.write(); 
 	}
 
@@ -53,7 +56,7 @@ public class MovieRecommenderAPI
 		userIndex.clear();
 	}
 
-	public User createFileUser(User user)
+	public User createUser(User user)
 	{
 		userIndex.put(user.id, user);
 		return user;
@@ -96,6 +99,11 @@ public class MovieRecommenderAPI
 	public Collection<Movie> getMovies ()
 	{
 		return movieIndex.values();
+	}
+	
+	public void deleteMovies()
+	{
+		movieIndex.clear();
 	}
 
 	public Movie getMovie(Long movieID)

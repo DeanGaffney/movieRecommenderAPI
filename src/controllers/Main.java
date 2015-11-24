@@ -34,7 +34,7 @@ public class Main
 			List<User> users  = data.importUsers("data/users5.dat");
 			for(User user:users)
 			{
-				movieRecommender.createFileUser(user);
+				movieRecommender.createUser(user);
 			}
 			
 			List<Movie> movies = data.importMovies("data/items5.dat");
@@ -43,6 +43,7 @@ public class Main
 				movieRecommender.addMovie(movie);
 			}
 			movieRecommender.store();
+
 		}
 	}
 	//returns all users and details of users
