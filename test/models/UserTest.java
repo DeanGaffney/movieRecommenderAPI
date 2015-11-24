@@ -3,7 +3,10 @@ package models;
 import static models.Fixtures.users;
 import static org.junit.Assert.*;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
@@ -44,7 +47,7 @@ public class UserTest
 	{
 		assertEquals(dean.toString(),dean.toString());
 	}
-	
+
 
 	@Test
 	public void testEquals()
@@ -56,7 +59,7 @@ public class UserTest
 		assertEquals(dean, dean2);
 		assertNotEquals(dean, bart);
 	} 
-	
+
 	@Test
 	public void getUserById()
 	{
@@ -67,17 +70,31 @@ public class UserTest
 			ids.add(user.id);
 		}
 		assertEquals (users.length, ids.size());
-		
+
 		//test that getting this user will return the first user
 		assertEquals(users[0].firstName,"dean");
 		//should equal 19
 		assertNotEquals(users[0].age,20);
 		//should pass
-		
+
 		assertEquals(users[1].firstName,"dave");
 		//check the toString of this user against itself make sure its getting the correct toString
 		assertEquals(users[1].toString(),users[1].toString());
 		//this shouldn't be equal,checking a different toString with another toString.
 		assertNotEquals(users[1].toString(),users[2].toString());
+	}
+
+	@Test
+	public void deleteUserById()
+	{
+		//set up ids map
+		Set<Long> ids = new HashSet<>();
+		for (User user : users)
+		{
+			ids.add(user.id);
+		}
+		assertEquals (users.length, ids.size());
+		
+		//make test here fro removing item with id
 	}
 }

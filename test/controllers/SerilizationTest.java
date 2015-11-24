@@ -24,7 +24,8 @@ public class SerilizationTest
 	MovieRecommenderAPI movieRecommender;
 	Data data;
 	Fixtures fixtures = new Fixtures();
-
+	
+	//delete file function to allow the deletion of the XML file created after each test has finished running
 	void deleteFile(String fileName)
 	{
 		File datastore = new File ("testdatastore.xml");
@@ -33,7 +34,7 @@ public class SerilizationTest
 			datastore.delete();
 		}
 	}
-
+	//populates the movieRecommender with users
 	void populate (MovieRecommenderAPI movieRecommender)
 	{
 		for (User user : users)
@@ -42,6 +43,7 @@ public class SerilizationTest
 		}
 	}
 
+	//tests the function to populate the movieRecommender for test purposes.
 	@Test
 	public void testPopulate()
 	{
@@ -51,14 +53,16 @@ public class SerilizationTest
 
 		assertEquals(users.length, movieRecommender.getUsers().size());	     
 	}
-
+	
+	/*Tests the basic function of the serializer by populating the users list and checking equality
+	 * with another object which loads back the same data that was saved by the first object.
+	 */
 	@Test
 	public void testXMLSerializer() throws Exception
 	{ 
 		File usersFile = new File("testdatastore.xml");
 		Serializer serializer = new XMLSerializer(usersFile);
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
-		Data data = new Data();
 
 		populate(movieRecommender);
 		movieRecommender.store();
@@ -76,6 +80,10 @@ public class SerilizationTest
 		deleteFile ("testdatastore.xml");
 	}
 
+	
+	/*Tests the serialisation of the users through a series of modifications and loads and saves between 2
+	 * different objects to make sure they are recovering the same users after each modification.
+	 */
 	@Test
 	public void testUserSerializastion() throws Exception
 	{
@@ -123,7 +131,10 @@ public class SerilizationTest
 
 		deleteFile ("testdatastore.xml");
 	}
-
+	
+	/*Tests the serialisation of the movies through a series of modifications and loads and saves between 2
+	 * different objects to make sure they are recovering the same movies after each modification.
+	 */
 	@Test
 	public void testMovieSerialization() throws Exception
 	{
