@@ -110,6 +110,17 @@ public class MovieRecommenderAPI
 	{
 		return movieIndex.get(movieID);
 	}
+	
+	public Rating addRating(Long userId,Long movieId,int rating)
+	{
+		Rating userRating = new Rating(userId,movieId,rating);
+		User user = userIndex.get(userId);
+		user.ratings.add(userRating);
+		
+		//System.out.println("user.ratings.get(0).movieId " + "\n" +" user.ratings.get(0).rating");
+		return userRating;
+		
+	}
 
 	public Collection<Rating> getUserRatings(Long userID)
 	{

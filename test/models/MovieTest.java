@@ -1,16 +1,25 @@
 package models;
 import static org.junit.Assert.*;
 import static models.Fixtures.movies;
+import static models.Fixtures.ratings;
+import static models.Fixtures.users;
 
+import java.io.File;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
+
+import utils.Serializer;
+import utils.XMLSerializer;
+import controllers.Data;
+import controllers.MovieRecommenderAPI;
 public class MovieTest 
 {
 
 	Movie movie = new Movie ("deansMovie", "1996","www.dean.com");
-
+	MovieRecommenderAPI movieRecommender;
 	@Test
 	public void testCreate()
 	{
@@ -55,28 +64,35 @@ public class MovieTest
 	} 
 
 	@Test
-	public void getUserById()
+	public void getMovieById() throws Exception
 	{
-		//set up id map
-		Set<Long> ids = new HashSet<>();
-		for (Movie movie : movies)
+		File usersFile = new File("testdatastore.xml");
+		Serializer serializer = new XMLSerializer(usersFile);
+		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
+		Data data = new Data();
+
+		List<Movie> movies = data.importMovies("data/items5.dat");
+		for(Movie movie : movies)
 		{
-			ids.add(movie.id);
+			movieRecommender.addMovie(movie);
 		}
-		assertEquals (movies.length, ids.size());
+		movieRecommender.store();
 
-		//test that getting this movie will return the first movie
-		assertEquals(movies[0].title,"deansMovie");
-		//should equal 1996 so this will pass
-		assertNotEquals(movies[0].year,"2000");
-		//should pass
+		//loads movieRecommender2 with the new data and tests their equality
+		MovieRecommenderAPI movieRecommender2 =  new MovieRecommenderAPI(serializer);
+		movieRecommender2.load();
 
-		assertEquals(movies[1].title,"paulsMovie");
-		//check the toString of this movie against itself make sure its getting the correct toString
-		assertEquals(movies[1].toString(),movies[1].toString());
-		//this shouldn't be equal,checking a different toString with another toString.
-		assertNotEquals(movies[1].toString(),movies[2].toString());
+		/*the for loop will go through each user in movieRecommender
+		 * and will get the id's of each user. It will then test the movieRecommender
+		 * id's against the id's of movieRecommender2 assuring that the getUser(id) function
+		 * is working correctly.
+		 */
+		for (Movie movie : movieRecommender.getMovies())
+		{
+			assertEquals(movie.id,movieRecommender2.getMovie(movie.id).id);
+		}
 	}
 }
+
 
 

@@ -7,12 +7,18 @@ import com.google.common.base.Objects;
 public class Rating 
 {
 	public int rating;
-
-	public Rating(User userId,Movie movieId,int rating)
+	public Long movieId;
+	public Long userId;
+	
+	public Rating(Long userId,Long movieId,int rating)
 	{
-		setRating(rating);
+		this.movieId = movieId;
+		this.userId = userId;
+		setRating(this.rating);
+		this.rating = rating;
 	}
-
+	
+	// make sure they give an appropriate rating
 	public void setRating(int rating)
 	{
 		if(rating >= 0 && rating <=5)

@@ -35,7 +35,7 @@ public class SerilizationTest
 		}
 	}
 	//populates the movieRecommender with users
-	void populate (MovieRecommenderAPI movieRecommender)
+	public void populate (MovieRecommenderAPI movieRecommender)
 	{
 		for (User user : users)
 		{

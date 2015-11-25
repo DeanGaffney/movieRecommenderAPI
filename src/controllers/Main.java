@@ -84,6 +84,12 @@ public class Main
 	{
 		movieRecommender.addMovie(title, year, url);
 	}
+	
+	@Command(description="Add a rating")
+	public void addRating(@Param(name="userId") Long userId, @Param(name="movieId")Long movieId, @Param(name="rating") int rating)
+	{
+		movieRecommender.addRating(userId, movieId, rating);
+	}
 	public static void main(String[] args) throws Exception
 	{
 		Main main = new Main();
