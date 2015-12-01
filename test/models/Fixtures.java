@@ -1,5 +1,7 @@
 package models;
 
+import java.util.List;
+
 public class Fixtures
 {
 	public static User[] users =
@@ -20,7 +22,7 @@ public class Fixtures
 	public static Rating[] ratings = 
 		{
 			new Rating(users[0].id,movies[0].id,3),
-			new Rating(users[0].id,movies[1].id,0),
+			new Rating(users[0].id,movies[0].id,4),
 			new Rating(users[1].id,movies[2].id,5),
 			new Rating(users[1].id,movies[3].id,2),
 		};

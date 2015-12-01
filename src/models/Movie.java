@@ -18,6 +18,7 @@ public class Movie
 	public String url;
 	
 	public List<Rating> ratings = new ArrayList<>();
+	public List<AverageRating> averageRatings = new ArrayList<>();
 	
 	public Movie(String title, String year, String url)
 	{

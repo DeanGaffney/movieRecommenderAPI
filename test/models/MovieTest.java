@@ -20,6 +20,7 @@ public class MovieTest
 
 	Movie movie = new Movie ("deansMovie", "1996","www.dean.com");
 	MovieRecommenderAPI movieRecommender;
+	Data data;
 	@Test
 	public void testCreate()
 	{
@@ -48,7 +49,7 @@ public class MovieTest
 	@Test
 	public void testToString()
 	{
-		assertEquals(movie.toString(),movie.toString());
+		assertEquals(movie.toString(),movies[0].toString());
 	}
 
 
@@ -69,12 +70,10 @@ public class MovieTest
 		File usersFile = new File("testdatastore.xml");
 		Serializer serializer = new XMLSerializer(usersFile);
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
-		Data data = new Data();
 
-		List<Movie> movies = data.importMovies("data/items5.dat");
-		for(Movie movie : movies)
+		for(int i = 0; i<movies.length;i++)
 		{
-			movieRecommender.addMovie(movie);
+			movieRecommender.addMovie(movies[i]);
 		}
 		movieRecommender.store();
 
@@ -91,6 +90,40 @@ public class MovieTest
 		{
 			assertEquals(movie.id,movieRecommender2.getMovie(movie.id).id);
 		}
+	}
+	
+	@Test
+	public void addMovie() throws Exception
+	{
+		File usersFile = new File("testdatastore.xml");
+		Serializer serializer = new XMLSerializer(usersFile);
+		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
+		MovieRecommenderAPI movieRecommender2 = new MovieRecommenderAPI(serializer);
+		
+		//put movies from fixtures into movieREcommender and store them.
+		for(int i = 0; i<movies.length;i++)
+		{
+			movieRecommender.addMovie(movies[i]);
+		}
+		
+		//make sure that they were added successfully by checking the size of movieRecommender against fixtures.
+		movieRecommender.store();
+		assertEquals(movieRecommender.getMovies().size(),movies.length);
+		
+		//load movieRecommender 2 and check the size against movieRecommender
+		movieRecommender2.load();
+		assertEquals(movieRecommender.getMovies().size(),movieRecommender2.getMovies().size());
+		
+		/*If the next test passes it is safe to say that every movie in
+		 * movieRecommender2 contains the same movies as movieRecommender,
+		 * meaning that the movies were successfully added in both 
+		 * movieRecommender and movieRecommender2.
+		 */
+		for(Movie movie : movieRecommender.getMovies())
+		{
+			assertTrue(movieRecommender2.getMovies().contains(movie));
+		}
+		
 	}
 }
 

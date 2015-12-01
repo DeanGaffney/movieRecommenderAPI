@@ -4,7 +4,7 @@ import utils.ToJsonString;
 
 import com.google.common.base.Objects;
 
-public class Rating 
+public class Rating implements Comparable<Rating>
 {
 	public int rating;
 	public Long movieId;
@@ -21,7 +21,7 @@ public class Rating
 	// make sure they give an appropriate rating
 	public void setRating(int rating)
 	{
-		if(rating >= 0 && rating <=5)
+		if(rating >= -5 && rating <=5)
 		{
 			this.rating = rating;
 		}
@@ -54,5 +54,17 @@ public class Rating
 		{
 			return false;
 		}
+	}
+
+	@Override
+	public int compareTo(Rating other) 
+	{
+		if(this.userId < other.userId)   return -1;
+		if(this.userId > other.userId)   return +1;
+		if(this.movieId < other.movieId) return -1;
+		if(this.movieId > other.movieId) return +1;
+		if(this.rating < other.rating) 	 return -1;
+		if(this.rating > other.rating)   return +1;
+		return 0;
 	}
 }

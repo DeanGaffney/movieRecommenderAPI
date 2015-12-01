@@ -21,10 +21,6 @@ public class User
 	public List<Rating> ratings = new ArrayList<>();
 
 
-	public User()
-	{
-	}
-
 	public User(Long id,String firstName, String lastName,int age,String gender,String occupation)
 	{
 		this.id        = id;

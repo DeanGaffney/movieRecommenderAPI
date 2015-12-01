@@ -9,6 +9,7 @@ import edu.princeton.cs.introcs.In;
 import utils.Serializer;
 import utils.XMLSerializer;
 import models.Movie;
+import models.Rating;
 import models.User;
 import asg.cliche.Command;
 import asg.cliche.Param;
@@ -41,6 +42,12 @@ public class Main
 			for(Movie movie : movies)
 			{
 				movieRecommender.addMovie(movie);
+			}
+			
+			List<Rating> ratings = data.importRatings("data/ratings5.dat");
+			for(Rating rating : ratings)
+			{
+				movieRecommender.addFileRating(rating);
 			}
 			movieRecommender.store();
 
@@ -83,6 +90,25 @@ public class Main
 	public void addMovie (@Param(name="title") String title, @Param(name="year") String year, @Param(name="url") String url)
 	{
 		movieRecommender.addMovie(title, year, url);
+	}
+	
+	/*@Command(description="List all ratings")
+	public void getRatings()
+	{
+		Collection<Rating> ratings = movieRecommender.getRatings();
+		System.out.println(ratings);
+	}*/
+	
+	@Command(description="Get a users Ratings")
+	public void getUserRatings (@Param(name="userId")Long userId)
+	{
+		movieRecommender.getUserRatings(userId);
+	}
+	
+	@Command(description="Get a movies Ratings")
+	public void getMovieRatings (@Param(name="movieId") Long movieId)
+	{
+		movieRecommender.getMovieRatings(movieId);
 	}
 	
 	@Command(description="Add a rating")

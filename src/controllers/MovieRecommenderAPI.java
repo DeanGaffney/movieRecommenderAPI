@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Map;
 
 import com.google.common.base.Optional;
 
+import models.AverageRating;
 import models.Movie;
 import models.Rating;
 import models.User;
@@ -18,6 +20,7 @@ public class MovieRecommenderAPI
 
 	private Map<Long,User>   userIndex = new HashMap<>();
 	private Map<Long, Movie> movieIndex = new HashMap<>();
+	private Map<Long, Rating> ratingIndex = new HashMap<>();
 
 	public MovieRecommenderAPI()
 	{}
@@ -61,7 +64,6 @@ public class MovieRecommenderAPI
 		userIndex.put(user.id, user);
 		return user;
 	}
-
 
 	public User createUser(String firstName, String lastName, int age, String gender, String occupation)
 	{
@@ -111,21 +113,84 @@ public class MovieRecommenderAPI
 		return movieIndex.get(movieID);
 	}
 	
+	public Collection<Rating> getRatings()
+	{
+		return ratingIndex.values();
+	}
+	
 	public Rating addRating(Long userId,Long movieId,int rating)
 	{
 		Rating userRating = new Rating(userId,movieId,rating);
+		
 		User user = userIndex.get(userId);
 		user.ratings.add(userRating);
 		
-		//System.out.println("user.ratings.get(0).movieId " + "\n" +" user.ratings.get(0).rating");
-		return userRating;
+		Movie movie = movieIndex.get(movieId);
+		movie.ratings.add(userRating);
 		
+		return userRating;
+	}
+	
+	//used for reading in from file to add an entire object.
+	public Rating addFileRating(Rating rating)
+	{
+		System.out.println("Working");
+		Long userId = rating.userId;
+		User user = getUser(userId);
+		user.ratings.add(rating);
+		
+		Long movieId = rating.movieId;
+		Movie movie = movieIndex.get(movieId);
+		System.out.println(movie);
+		movie.ratings.add(rating);
+		
+		return rating;
 	}
 
 	public Collection<Rating> getUserRatings(Long userID)
 	{
 		User user = userIndex.get(userID);
 		return user.ratings;
+	}
+	
+	public Collection<Rating> getMovieRatings(Long movieId)
+	{
+		Movie movie = movieIndex.get(movieId);
+		return movie.ratings;
+	}
+	
+	public List<Movie> topTenMovies()
+	{
+		ArrayList<Movie> topTenMovies = new ArrayList<>();
+		ArrayList<AverageRating> averageRatings = new ArrayList<>();
+		int averageMovieRating = 0;
+		int sum = 0;
+		for(Movie movie : getMovies())
+		{
+			topTenMovies.add(movie);
+		}
+		
+		for(Movie movie : topTenMovies)
+		{
+			for(int i =0;i<movie.ratings.size();i++)
+			{
+				sum += movie.ratings.get(i).rating;
+			}
+			averageMovieRating = sum / movie.ratings.size();
+			
+			movie.averageRatings.add(new AverageRating(averageMovieRating));
+		}
+		
+		for(Movie movie : topTenMovies)
+		{
+			for(int i =0;i<movie.averageRatings.size();i++)
+			{
+				
+			}
+		}
+		
+		
+		return null;
 	}
 }
 

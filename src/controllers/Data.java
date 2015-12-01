@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.List;
 
 import models.Movie;
+import models.Rating;
 import models.User;
 import utils.Serializer;
 import utils.XMLSerializer;
@@ -84,5 +85,39 @@ public class Data
 		}
 		return movies;	
 	}
+	
+	public List<Rating> importRatings(String fileName) throws Exception
+	{
+		List <Rating> ratings = new ArrayList<Rating>();
+
+		In inUsers = new In(fileName);
+
+		//each field is separated(delimited) by a '|'
+		String delims = "[|]";
+		while (!inUsers.isEmpty()) 
+		{
+			// get user and rating from data source
+			String ratingDetails = inUsers.readLine();
+
+			// parse user details string
+			String[] ratingTokens = ratingDetails.split(delims);
+			ratings.add(new Rating(Long.parseLong(ratingTokens[0]),Long.parseLong(ratingTokens[1]),Integer.parseInt(ratingTokens[2])));			// output user data to console.
+			if (ratings!=null) 
+			{
+				System.out.println(ratings.size());
+			}
+			else
+			{
+				throw new Exception("Invalid member length: "+ratingTokens.length);
+			}
+
+		}
+		for(int i = 0;i<ratings.size();i++)
+		{
+			System.out.println(ratings.get(i));
+		}
+		return ratings;	
+	}
+	
 }
 
