@@ -32,25 +32,24 @@ public class Main
 		}
 		else
 		{
-			List<User> users  = data.importUsers("data/users5.dat");
+			List<User> users  = data.importUsers("data/users.dat");
 			for(User user:users)
 			{
 				movieRecommender.createUser(user);
 			}
 			
-			List<Movie> movies = data.importMovies("data/items5.dat");
+			List<Movie> movies = data.importMovies("data/items.dat");
 			for(Movie movie : movies)
 			{
 				movieRecommender.addMovie(movie);
 			}
 			
-			List<Rating> ratings = data.importRatings("data/ratings5.dat");
+			List<Rating> ratings = data.importRatings("data/ratings.dat");
 			for(Rating rating : ratings)
 			{
 				movieRecommender.addFileRating(rating);
 			}
 			movieRecommender.store();
-
 		}
 	}
 	//returns all users and details of users
@@ -116,6 +115,13 @@ public class Main
 	{
 		movieRecommender.addRating(userId, movieId, rating);
 	}
+	
+	@Command(description="List Top 10 Movies")
+	public void listTopTenMovies()
+	{
+		movieRecommender.topTenMovies();
+	}
+	
 	public static void main(String[] args) throws Exception
 	{
 		Main main = new Main();

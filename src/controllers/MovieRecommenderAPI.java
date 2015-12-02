@@ -2,6 +2,7 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,8 @@ public class MovieRecommenderAPI
 
 	private Map<Long,User>   userIndex = new HashMap<>();
 	private Map<Long, Movie> movieIndex = new HashMap<>();
-	private Map<Long, Rating> ratingIndex = new HashMap<>();
+	//private Map<Long, Rating> ratingIndex = new HashMap<>();
+	private ArrayList<AverageRating> averageRatings = new ArrayList<>();
 
 	public MovieRecommenderAPI()
 	{}
@@ -113,10 +115,10 @@ public class MovieRecommenderAPI
 		return movieIndex.get(movieID);
 	}
 	
-	public Collection<Rating> getRatings()
+	/*public Collection<Rating> getRatings()
 	{
 		return ratingIndex.values();
-	}
+	}*/
 	
 	public Rating addRating(Long userId,Long movieId,int rating)
 	{
@@ -159,38 +161,28 @@ public class MovieRecommenderAPI
 		return movie.ratings;
 	}
 	
-	public List<Movie> topTenMovies()
+	public ArrayList<AverageRating> topTenMovies()
 	{
-		ArrayList<Movie> topTenMovies = new ArrayList<>();
-		ArrayList<AverageRating> averageRatings = new ArrayList<>();
-		int averageMovieRating = 0;
-		int sum = 0;
+		ArrayList<AverageRating> topTenMovies = new ArrayList<>();
+		ArrayList<AverageRating> allAverageRatings = new ArrayList<>();
+				
+		
 		for(Movie movie : getMovies())
 		{
-			topTenMovies.add(movie);
+			allAverageRatings.add(new AverageRating(movie.id,movie.averageRating()));
 		}
-		
-		for(Movie movie : topTenMovies)
+		System.out.println(allAverageRatings);
+		Collections.sort(allAverageRatings);
+		System.out.println(allAverageRatings);
+
+		for(int i = allAverageRatings.size()/-10; i<allAverageRatings.size();i++)
 		{
-			for(int i =0;i<movie.ratings.size();i++)
-			{
-				sum += movie.ratings.get(i).rating;
-			}
-			averageMovieRating = sum / movie.ratings.size();
-			
-			movie.averageRatings.add(new AverageRating(averageMovieRating));
+			topTenMovies.add(allAverageRatings.get(i));
 		}
+		Collections.sort(topTenMovies);
+		System.out.println(topTenMovies);
 		
-		for(Movie movie : topTenMovies)
-		{
-			for(int i =0;i<movie.averageRatings.size();i++)
-			{
-				
-			}
-		}
-		
-		
-		return null;
+		return topTenMovies;
 	}
 }
 

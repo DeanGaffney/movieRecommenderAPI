@@ -1,11 +1,15 @@
 package models;
 
+import utils.ToJsonString;
+
 public class AverageRating implements Comparable<AverageRating> 
 {
-	public int averageRating;
+	public Long movieId;
+	public double averageRating;
 	
-	public AverageRating(int averageRating)
+	public AverageRating(Long movieId,double averageRating)
 	{
+		this.movieId=movieId;
 		this.averageRating = averageRating;
 	}
 
@@ -16,5 +20,11 @@ public class AverageRating implements Comparable<AverageRating>
 		if(this.averageRating > other.averageRating) return +1;
 		
 		return 0;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return new ToJsonString(getClass(), this).toString();
 	}
 }

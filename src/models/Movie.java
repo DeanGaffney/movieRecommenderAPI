@@ -16,10 +16,9 @@ public class Movie
 	public String title;
 	public String year;
 	public String url;
-	
+
 	public List<Rating> ratings = new ArrayList<>();
-	public List<AverageRating> averageRatings = new ArrayList<>();
-	
+
 	public Movie(String title, String year, String url)
 	{
 		this.id = counter++;
@@ -34,8 +33,23 @@ public class Movie
 		this.title = title;
 		this.year = year;
 		this.url = url;
-		
+
 		counter++;
+	}
+
+	public double averageRating()
+	{
+		double averageMovieRating = 0;
+		double sum = 0;
+
+		for(int i = 0;i<ratings.size();i++)
+		{
+			sum += ratings.get(i).rating;
+		}
+		averageMovieRating = sum / ratings.size();
+		
+		return averageMovieRating;
+
 	}
 
 

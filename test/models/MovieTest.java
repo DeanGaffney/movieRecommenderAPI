@@ -125,6 +125,7 @@ public class MovieTest
 		}
 		
 	}
+	//Include an average rating test here!!!
 }
 
 

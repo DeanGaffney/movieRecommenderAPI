@@ -46,10 +46,10 @@ public class Data
 			}
 
 		}
-		for(int i = 0;i<users.size();i++)
+		/*for(int i = 0;i<users.size();i++)
 		{
 			System.out.println(users.get(i));
-		}
+		}*/
 		return users;
 	}
 
@@ -79,10 +79,10 @@ public class Data
 			}
 
 		}
-		for(int i = 0;i<movies.size();i++)
+		/*for(int i = 0;i<movies.size();i++)
 		{
 			System.out.println(movies.get(i));
-		}
+		}*/
 		return movies;	
 	}
 	
@@ -112,10 +112,10 @@ public class Data
 			}
 
 		}
-		for(int i = 0;i<ratings.size();i++)
+		/*for(int i = 0;i<ratings.size();i++)
 		{
 			System.out.println(ratings.get(i));
-		}
+		}*/
 		return ratings;	
 	}
 	
