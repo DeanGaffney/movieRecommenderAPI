@@ -57,7 +57,8 @@ public class Movie
 	@Override
 	public String toString()
 	{
-		return new ToJsonString(getClass(), this).toString();
+		return "ID: " + id + "\n" + "Title: " + title + "\n" + "Year: " + year + "\n" +
+				"URL: " + url + "\n" + "No. of Ratings " + ratings.size() + "\n" + "\n";
 	}
 
 	@Override

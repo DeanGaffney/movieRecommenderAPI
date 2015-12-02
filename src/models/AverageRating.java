@@ -25,6 +25,6 @@ public class AverageRating implements Comparable<AverageRating>
 	@Override
 	public String toString()
 	{
-		return new ToJsonString(getClass(), this).toString();
+		return "Movie ID: " + movieId + "/n" + "Average Rating: " + averageRating;
 	}
 }

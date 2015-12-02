@@ -47,7 +47,9 @@ public class User
 
 	public String toString()
 	{
-		return new ToJsonString(getClass(), this).toString();
+		return "ID: " + id + "\n" + "First Name: " + firstName + "\n" + "Last Name: " + lastName + "\n" +
+				"Occupation: " + occupation + "\n" + "Gender: " + gender + "\n" +
+				"No. of Ratings " + ratings.size() + "\n" + "\n";
 	}
 
 	@Override  
@@ -66,8 +68,7 @@ public class User
 					&&  Objects.equal(lastName,    other.lastName)
 					&& Objects.equal(age,			other.age)
 					&& Objects.equal(gender, other.gender)
-					&&  Objects.equal(occupation,       other.occupation)
-					&&	Objects.equal(ratings,			other.ratings);
+					&&  Objects.equal(occupation,       other.occupation);
 		}
 		else
 		{
