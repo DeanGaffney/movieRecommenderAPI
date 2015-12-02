@@ -91,12 +91,6 @@ public class Main
 		movieRecommender.addMovie(title, year, url);
 	}
 	
-	/*@Command(description="List all ratings")
-	public void getRatings()
-	{
-		Collection<Rating> ratings = movieRecommender.getRatings();
-		System.out.println(ratings);
-	}*/
 	
 	@Command(description="Get a users Ratings")
 	public void getUserRatings (@Param(name="userId")Long userId)

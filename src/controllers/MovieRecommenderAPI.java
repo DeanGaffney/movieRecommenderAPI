@@ -61,23 +61,20 @@ public class MovieRecommenderAPI
 		userIndex.clear();
 	}
 
-	public User createUser(User user)
+	public void createUser(User user)
 	{
 		userIndex.put(user.id, user);
-		return user;
 	}
 
-	public User createUser(String firstName, String lastName, int age, String gender, String occupation)
+	public void createUser(String firstName, String lastName, int age, String gender, String occupation)
 	{
 		User user = new User (firstName, lastName, age, gender, occupation);
 		userIndex.put(user.id, user);
-		return user;
 	}
 
 
 	public User getUser(Long id) 
 	{
-		System.out.println(userIndex.get(id));
 		return userIndex.get(id);
 	}
 
@@ -87,17 +84,15 @@ public class MovieRecommenderAPI
 		User user = userIndex.remove(id);
 	}
 
-	public Movie addMovie(String title, String year, String url)
+	public void addMovie(String title, String year, String url)
 	{
 		Movie movie = new Movie (title, year, url);
 		movieIndex.put(movie.id, movie);
-		return movie;
 	}
 	
-	public Movie addMovie(Movie movie)
+	public void addMovie(Movie movie)
 	{
 		movieIndex.put(movie.id, movie);
-		return movie;
 	}
 
 	public Collection<Movie> getMovies ()
@@ -115,12 +110,7 @@ public class MovieRecommenderAPI
 		return movieIndex.get(movieID);
 	}
 	
-	/*public Collection<Rating> getRatings()
-	{
-		return ratingIndex.values();
-	}*/
-	
-	public Rating addRating(Long userId,Long movieId,int rating)
+	public void addRating(Long userId,Long movieId,int rating)
 	{
 		Rating userRating = new Rating(userId,movieId,rating);
 		
@@ -129,24 +119,18 @@ public class MovieRecommenderAPI
 		
 		Movie movie = movieIndex.get(movieId);
 		movie.ratings.add(userRating);
-		
-		return userRating;
 	}
 	
 	//used for reading in from file to add an entire object.
-	public Rating addFileRating(Rating rating)
+	public void addFileRating(Rating rating)
 	{
-		System.out.println("Working");
 		Long userId = rating.userId;
 		User user = getUser(userId);
 		user.ratings.add(rating);
 		
 		Long movieId = rating.movieId;
 		Movie movie = movieIndex.get(movieId);
-		System.out.println(movie);
 		movie.ratings.add(rating);
-		
-		return rating;
 	}
 
 	public Collection<Rating> getUserRatings(Long userID)
