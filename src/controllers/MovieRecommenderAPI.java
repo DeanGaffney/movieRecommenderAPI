@@ -147,23 +147,24 @@ public class MovieRecommenderAPI
 	
 	public ArrayList<AverageRating> topTenMovies()
 	{
+		//make two lists one to hold all average ratings for all movies
+		//the other will contain a sub list of the allAverageRatings which will return just the last ten movies of the sorted list.
 		ArrayList<AverageRating> topTenMovies = new ArrayList<>();
 		ArrayList<AverageRating> allAverageRatings = new ArrayList<>();
 				
-		
+		//add an average rating to every movie in the database
 		for(Movie movie : getMovies())
 		{
 			allAverageRatings.add(new AverageRating(movie.id,movie.averageRating()));
 		}
-		System.out.println(allAverageRatings);
+		
+		//sort them based on the highest average ratings ---> using average rating comparable interface.
 		Collections.sort(allAverageRatings);
-		System.out.println(allAverageRatings);
 
-		for(int i = allAverageRatings.size()/-10; i<allAverageRatings.size();i++)
-		{
-			topTenMovies.add(allAverageRatings.get(i));
-		}
-		Collections.sort(topTenMovies);
+		//make topTenMovies a new array list which is a sublist of the last ten movies in allAverageRatings list. This will be top 10.
+		topTenMovies = new ArrayList<AverageRating>(allAverageRatings.subList(allAverageRatings.size()-10, allAverageRatings.size()));
+		
+		//print the movies to the user. No need to sort this as it was previously sorted in allAverageRatings.
 		System.out.println(topTenMovies);
 		
 		return topTenMovies;
