@@ -40,10 +40,8 @@ public class RatingTest
 	@Test
 	public void testToString() throws Exception
 	{
-		users[0].ratings.add(userRating);
-		assertEquals(userRating.toString(),users[0].ratings.get(0).toString());
-		//removed the rating after test so it doesnt interfere with any other tests.
-		users[0].ratings.remove(userRating);
+		assertEquals("User ID: " + userRating.userId + "\n" + "Movie ID: " + userRating.movieId + "\n" +
+				"Rating: " + userRating.rating + "\n" + "\n",userRating.toString());
 	}
 
 
@@ -90,7 +88,11 @@ public class RatingTest
 		File usersFile = new File("testdatastore.xml");
 		Serializer serializer = new XMLSerializer(usersFile);
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
-
+		
+		//always make sure I am starting with blank movieRecommender objects
+		// especially in this case because you cant have a rating without both a movie and a user in this system.
+		assertEquals(0,movieRecommender.getUsers().size());
+		assertEquals(0,movieRecommender.getMovies().size());
 
 		System.out.println(users[0].id);
 		System.out.println(users[1].id);
@@ -116,11 +118,11 @@ public class RatingTest
 		assertEquals(movieRecommender.getUsers().size(),users.length);
 		assertEquals(movieRecommender.getMovies().size(),movies.length);
 
-		/*There should now be 2 ratings according to the 'Fixtures' class added into users[0] ratings list.
-		 * There should be 2 ratings within users[1]of the 'Fixtures' class also.
+		/*There should now be 3 ratings according to the 'Fixtures' class added into users[0] ratings list.
+		 * There should be 27 ratings within users[1]of the 'Fixtures' class also.
 		 */
-		assertEquals(2,users[0].ratings.size());
-		assertEquals(2,users[1].ratings.size());
+		assertEquals(3,users[0].ratings.size());
+		assertEquals(27,users[1].ratings.size());
 
 		MovieRecommenderAPI movieRecommender2 = new MovieRecommenderAPI(serializer);
 

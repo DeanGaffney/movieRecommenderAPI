@@ -21,6 +21,21 @@ public class MovieTest
 	Movie movie = new Movie ("deansMovie", "1996","www.dean.com");
 	MovieRecommenderAPI movieRecommender;
 	Data data;
+	
+	//make a simple function to return the average of a movie
+	double getAverageRating(Movie movie)
+	{
+		double averageMovieRating = 0;
+		double sum = 0;
+
+		for(int i = 0;i<movie.ratings.size();i++)
+		{
+			sum += movie.ratings.get(i).rating;
+		}
+		averageMovieRating = sum / movie.ratings.size();
+		
+		return averageMovieRating;
+	}
 	@Test
 	public void testCreate()
 	{
@@ -49,7 +64,8 @@ public class MovieTest
 	@Test
 	public void testToString()
 	{
-		assertEquals(movie.toString(),movies[0].toString());
+		assertEquals("ID: " + movie.id + "\n" + "Title: " + movie.title + "\n" + "Year: " + movie.year + "\n" +
+				"URL: " + movie.url + "\n" + "No. of Ratings " + movie.ratings.size() + "\n" + "\n",movie.toString());
 	}
 
 
@@ -100,7 +116,7 @@ public class MovieTest
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
 		MovieRecommenderAPI movieRecommender2 = new MovieRecommenderAPI(serializer);
 		
-		//put movies from fixtures into movieREcommender and store them.
+		//put movies from fixtures into movieRecommender and store them.
 		for(int i = 0; i<movies.length;i++)
 		{
 			movieRecommender.addMovie(movies[i]);
@@ -123,9 +139,80 @@ public class MovieTest
 		{
 			assertTrue(movieRecommender2.getMovies().contains(movie));
 		}
+	}
+	
+	@Test
+	public void deleteMovieByID() throws Exception
+	{
+		File usersFile = new File("testdatastore.xml");
+		Serializer serializer = new XMLSerializer(usersFile);
+		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
+		MovieRecommenderAPI movieRecommender2 = new MovieRecommenderAPI(serializer);
+		
+		//always make sure I am starting with blank movieRecommender objects
+		assertEquals(0,movieRecommender.getMovies().size());
+		assertEquals(0,movieRecommender2.getMovies().size());
+
+		
+		for(int i = 0; i<movies.length;i++)
+		{
+			movieRecommender.addMovie(movies[i]);
+		}
+		
+		movieRecommender.store();
+		
+		movieRecommender2.load();
+		
+		movieRecommender.deleteMovie(2l);
+		
+		assertNotEquals(movieRecommender.getMovies().size(),movieRecommender2.getMovies().size());
+		
+		movieRecommender2.deleteMovie(3l);
+		
+		assertEquals(movieRecommender.getMovies().size(),movieRecommender2.getMovies().size());
 		
 	}
-	//Include an average rating test here!!!
+	@SuppressWarnings("deprecation")
+	@Test
+	public void averageRatingTest() throws Exception
+	{
+		File usersFile = new File("testdatastore.xml");
+		Serializer serializer = new XMLSerializer(usersFile);
+		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
+
+		for(int i = 0; i<users.length;i++)
+		{
+			movieRecommender.createUser(users[i]);
+		}
+
+		for(int i = 0; i<movies.length;i++)
+		{
+			movieRecommender.addMovie(movies[i]);
+		}
+
+		for(int i =0; i < ratings.length ;i++)
+		{
+			movieRecommender.addFileRating(ratings[i]);
+		}
+		
+
+		movieRecommender.store();
+		
+		//this result in average rating of 1.0 when printed out.
+		System.out.println(movieRecommender.getMovie(2l).averageRating());
+		
+		//make sure our movieRecommender supplies the same result
+		assertEquals(1.0,movieRecommender.getMovie(2l).averageRating(),.1);
+		
+		//now make sure our local method and movieRecommender return the same averages for movies.
+		assertEquals(movieRecommender.getMovie(2l).averageRating(),getAverageRating(movieRecommender.getMovie(2l)),.1);
+		assertNotEquals(movieRecommender.getMovie(2l).averageRating(),getAverageRating(movieRecommender.getMovie(3l)),.1);
+		
+		//now test the adding of the averageRatings to the movieRecommender averageRatings list.
+		assertEquals(0,movieRecommender.averageRatings.size());
+		movieRecommender.averageRatings.add(new AverageRating(movieRecommender.getMovie(2l).id,movieRecommender.getMovie(2l).averageRating()));
+		assertEquals(1,movieRecommender.averageRatings.size());
+	}
 }
 
 

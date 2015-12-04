@@ -53,7 +53,9 @@ public class UserTest
 	@Test
 	public void testToString()
 	{
-		assertEquals(dean.toString(),dean.toString());
+		assertEquals("ID: " + dean.id + "\n" + "First Name: " + dean.firstName + "\n" + "Last Name: " + dean.lastName + "\n" +
+				"Occupation: " + dean.occupation + "\n" + "Gender: " + dean.gender + "\n" +
+				"No. of Ratings " + dean.ratings.size() + "\n" + "\n",dean.toString());
 	}
 
 
@@ -100,7 +102,43 @@ public class UserTest
 		}
 	}
 
+	@Test
+	public void addUser() throws Exception
+	{
 
+		File usersFile = new File("testdatastore.xml");
+		Serializer serializer = new XMLSerializer(usersFile);
+		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
+		MovieRecommenderAPI movieRecommender2 = new MovieRecommenderAPI(serializer);
+		
+		//always make sure I am starting with blank movieRecommender objects
+		assertEquals(0,movieRecommender.getUsers().size());
+		assertEquals(0,movieRecommender2.getUsers().size());
+
+		//put users from fixtures into movieRecommender and store them.
+		for(int i = 0; i<users.length;i++)
+		{
+			movieRecommender.createUser(users[i]);
+		}
+		
+		//make sure that they were added successfully by checking the size of movieRecommender against fixtures.
+		movieRecommender.store();
+		assertEquals(movieRecommender.getUsers().size(),users.length);
+		
+		//load movieRecommender 2 and check the size against movieRecommender
+		movieRecommender2.load();
+		assertEquals(movieRecommender.getUsers().size(),movieRecommender2.getUsers().size());
+		
+		/*If the next test passes it is safe to say that every user in
+		 * movieRecommender2 contains the same users as movieRecommender,
+		 * meaning that the users were successfully added in both 
+		 * movieRecommender and movieRecommender2.
+		 */
+		for(User user : movieRecommender.getUsers())
+		{
+			assertTrue(movieRecommender2.getUsers().contains(user));
+		}
+	}
 
 	@Test
 	public void deleteUserById() throws Exception
@@ -108,14 +146,13 @@ public class UserTest
 		File usersFile = new File("testdatastore.xml");
 		Serializer serializer = new XMLSerializer(usersFile);
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
-		Data data = new Data();
 		
-		//populate user list from the readable file
-		List<User> users  = data.importUsers("data/users5.dat");
-		for(User user:users)
+		//populate user list from Fixtures.
+		for(int i = 0; i<users.length;i++)
 		{
-			movieRecommender.createUser(user);
+			movieRecommender.createUser(users[i]);
 		}
+		System.out.println(movieRecommender.getUsers());
 		movieRecommender.store();
 		
 		//create second object to test against
@@ -127,9 +164,9 @@ public class UserTest
 		 * id's against the id's of movieRecommender2 assuring that the getUser(id) function
 		 * is working correctly.
 		 */
-		for(User user : movieRecommender.getUsers())
+		for(Long i = 2l;i< movieRecommender.getUsers().size();i++)
 		{
-			movieRecommender.deleteUser(user.id);
+			movieRecommender.deleteUser(i);
 		}
 		movieRecommender.store();
 		

@@ -1,10 +1,9 @@
 package models;
 
-import utils.ToJsonString;
 
 import com.google.common.base.Objects;
 
-public class Rating 
+public class Rating implements Comparable<Rating>
 {
 	public int rating;
 	public Long movieId;
@@ -37,23 +36,39 @@ public class Rating
 				"Rating: " + rating + "\n" + "\n";
 	}
 
-	@Override  
-	public int hashCode()  
-	{  
-		return Objects.hashCode(this.rating);  
-	}  
+
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Rating other = (Rating) obj;
+		if (movieId == null) {
+			if (other.movieId != null)
+				return false;
+		} else if (!movieId.equals(other.movieId))
+			return false;
+		if (rating != other.rating)
+			return false;
+		if (userId == null) {
+			if (other.userId != null)
+				return false;
+		} else if (!userId.equals(other.userId))
+			return false;
+		return true;
+	}
 
 	@Override
-	public boolean equals(final Object obj)
+	public int compareTo(Rating that) 
 	{
-		if (obj instanceof Rating)
-		{
-			final Rating other = (Rating) obj;
-			return Objects.equal(rating,   other.rating) ;
-		}
-		else
-		{
-			return false;
-		}
+		if(this.rating < that.rating) return -1;
+		if(this.rating > that.rating) return +1;
+		
+		return 0;
 	}
 }

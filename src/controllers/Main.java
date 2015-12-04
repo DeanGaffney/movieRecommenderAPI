@@ -91,6 +91,11 @@ public class Main
 		movieRecommender.addMovie(title, year, url);
 	}
 	
+	@Command(description="Get a Movie's details")
+	public void getMovie(@Param(name="movieId") Long movieId)
+	{
+		movieRecommender.getMovie(movieId);
+	}
 	
 	@Command(description="Get a users Ratings")
 	public void getUserRatings (@Param(name="userId")Long userId)
@@ -114,6 +119,12 @@ public class Main
 	public void listTopTenMovies()
 	{
 		movieRecommender.topTenMovies();
+	}
+	
+	@Command(description="Recommend Movies")
+	public void recommendMovies(@Param(name="userId") Long userId)
+	{
+		movieRecommender.recommendMovies(userId);
 	}
 	
 	public static void main(String[] args) throws Exception

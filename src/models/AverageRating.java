@@ -1,6 +1,5 @@
 package models;
 
-import utils.ToJsonString;
 
 public class AverageRating implements Comparable<AverageRating> 
 {

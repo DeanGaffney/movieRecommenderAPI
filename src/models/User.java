@@ -3,7 +3,6 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
-import utils.ToJsonString;
 
 import com.google.common.base.Objects;
 
