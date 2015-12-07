@@ -6,7 +6,7 @@ import java.util.List;
 import com.google.common.base.Objects;
 
 
-public class Movie
+public class Movie implements Comparable<Movie> 
 {
 	public static Long counter = 1l;
 
@@ -73,7 +73,11 @@ public class Movie
 		return averageMovieRating;
 
 	}
-
+	
+	private List<Rating> getRatings()
+	{
+		return ratings;
+	}
 
 
 	@Override
@@ -103,5 +107,20 @@ public class Movie
 		{
 			return false;
 		}
+	}
+
+	@Override
+	public int compareTo(Movie that) 
+	{
+		for(Rating thisMovie : getRatings())
+		{
+			for(Rating thatMovie : that.getRatings())
+			{
+				if(thisMovie.rating < thatMovie.rating) return -1;
+				if(thisMovie.rating < thatMovie.rating) return +1;
+			}
+		}
+		
+		return 0;
 	}
 }

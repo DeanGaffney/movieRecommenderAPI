@@ -155,12 +155,14 @@ public class MovieRecommenderAPI
 		return movie.ratings;
 	}
 
-	public ArrayList<AverageRating> topTenMovies()
+	public ArrayList<Movie> topTenMovies()
 	{
 		//make two lists one to hold all average ratings for all movies
 		//the other will contain a sub list of the allAverageRatings which will return just the last ten movies of the sorted list.
-		ArrayList<AverageRating> topTenMovies = new ArrayList<>();
+		ArrayList<Movie> topTenMovies = new ArrayList<>();
 		ArrayList<AverageRating> allAverageRatings = new ArrayList<>();
+		ArrayList<Movie>tempList = new ArrayList();
+		
 
 		//add an average rating to every movie in the database
 		for(Movie movie : getMovies())
@@ -176,8 +178,13 @@ public class MovieRecommenderAPI
 		//sort them based on the highest average ratings ---> using average rating comparable interface.
 		Collections.sort(allAverageRatings);
 
+		//needed to convert from type AverageRating to type Movie so i can return type Movie
+		for(AverageRating movie : allAverageRatings)
+		{
+			tempList.add(movieIndex.get(movie.movieId));
+		}
 		//make topTenMovies a new array list which is a sublist of the last ten movies in allAverageRatings list. This will be top 10.
-		topTenMovies = new ArrayList<AverageRating>(allAverageRatings.subList(allAverageRatings.size()-10, allAverageRatings.size()));
+		topTenMovies = new ArrayList<Movie>(tempList.subList(tempList.size()-10, tempList.size()));
 
 		//print the movies to the user. No need to sort this as it was previously sorted in allAverageRatings.
 		System.out.println(topTenMovies);
@@ -197,7 +204,7 @@ public class MovieRecommenderAPI
 		User user = userIndex.get(userId);
 		if(user.ratings.size() == 0)
 		{
-			
+			return topTenMovies();
 		}
 		
 		//Creates a neighbourhood of people who are similar to our user
@@ -208,7 +215,6 @@ public class MovieRecommenderAPI
 
 		System.out.println(recommendations);
 		return recommendations;
-
 	}
 
 	private ArrayList<Movie> createRecommendationFromNeighbourhood(ArrayList<User> neighbourhood, User user) 
@@ -297,7 +303,7 @@ public class MovieRecommenderAPI
 			//this will give me back the average ratings over all movies rated by both users.
 			return ratingDifference / moviesInCommon;
 		}
-		//if they have no movies in common I will return a large difference which will indicate they are definitely not in similar.
+		//if they have no movies in common I will return a large difference which will indicate they are definitely not 	similar.
 		return Integer.MAX_VALUE;
 	}
 }
