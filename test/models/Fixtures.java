@@ -83,16 +83,16 @@ public class Fixtures
 			new Rating(users[0].id,movies[0].id,4),
 			
 			new Rating(users[1].id,movies[0].id,5),
-			new Rating(users[1].id,movies[0].id,5),
-			new Rating(users[1].id,movies[0].id,5),
+			new Rating(users[1].id,movies[9].id,5),
+			new Rating(users[1].id,movies[2].id,5),
 			
 			new Rating(users[1].id,movies[3].id,5),
 			new Rating(users[1].id,movies[1].id,0),
-			new Rating(users[1].id,movies[1].id,2),
+			new Rating(users[1].id,movies[8].id,2),
 			
-			new Rating(users[1].id,movies[1].id,-4),
-			new Rating(users[1].id,movies[1].id,-2),
-			new Rating(users[1].id,movies[1].id,-1),
+			new Rating(users[1].id,movies[4].id,-4),
+			new Rating(users[1].id,movies[6].id,-2),
+			new Rating(users[1].id,movies[7].id,-1),
 			
 			new Rating(users[2].id,movies[1].id,1),
 			new Rating(users[2].id,movies[1].id,-1),

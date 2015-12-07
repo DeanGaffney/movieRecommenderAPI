@@ -87,6 +87,12 @@ public class Main
 		movieRecommender.deleteUser(id);
 	}
 	
+	@Command(description="Delete all Users")
+	public void deleteAllUsers ()
+	{
+		movieRecommender.deleteUsers();
+	}
+	
 	@Command(description = "List all movies")
 	public void getMovies()
 	{
@@ -105,6 +111,18 @@ public class Main
 			System.out.println("Make sure you entered all data in the correct format!");
 			e.printStackTrace();
 		}
+	}
+	
+	@Command(description="Delete a movie")
+	public void deleteMovie(@Param(name="movieId")Long movieId)
+	{
+		movieRecommender.deleteMovie(movieId);
+	}
+	
+	@Command(description="Delete all movies")
+	public void deleteAllMovies()
+	{
+		movieRecommender.deleteMovies();
 	}
 	
 	@Command(description="Get a Movie's details")

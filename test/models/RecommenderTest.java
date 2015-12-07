@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import controllers.MovieRecommenderAPI;
 import static models.Fixtures.movies;
-import static models.Fixtures.ratings;
 import static models.Fixtures.users;
 import static models.Fixtures.recommenderRatings;
 import static org.junit.Assert.*;
@@ -16,26 +15,11 @@ public class RecommenderTest
 {
 	MovieRecommenderAPI movieRecommender;
 	
-	@Test
-	public void recommenderTest() throws Exception
-	{
-		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(null);
-		
-		for(User user : users)
-		{
-			movieRecommender.createUser(user);
-		}
-		for(Movie movie : movies)
-		{
-			movieRecommender.addMovie(movie);
-		}
-		for(Rating rating : ratings)
-		{
-			movieRecommender.addFileRating(rating);
-		}
-		
-		
-	}
+	/*Throughout all of the following tests they will test all methods needed to 
+	 * recommend a movie to a given user. They will test that the correct similarity is calculated,
+	 * the correct users are added to the 'neighbourhood' (see movieRecommenderAPI for details on neighbourhood),
+	 * and it will finally test that with the correct users the correct movies are recommended to the user.
+	 */
 	
 	@Test
 	public void testCalculateSimilarity() throws Exception
@@ -135,12 +119,17 @@ public class RecommenderTest
 		System.out.println(movieRecommender.createRecommendationFromNeighbourhood(neighbourhood, movieRecommender.getUser(1l)));
 		movieRecommender.createRecommendationFromNeighbourhood(neighbourhood, movieRecommender.getUser(1l));
 		
-		/*from the fixture set up the only movies that 'Dave Mustaine' has seen which 'Dean Gaffney'
+		/*from the fixture set up the movies that 'Dave Mustaine' has seen which 'Dean Gaffney'
 		 * hasn't seen is 'milliesMovie' and 'davesMovie or movies[3] and movies[1] in fixtures. Therefore my recommendation list should consist of
-		 * 'davesMovie' and 'milliesMovie'
+		 * 'nosferatu' and 'milliesMovie' and 'orlaithsMovie'. This is because my algorithm will suggest movies which the user hasn't seen
+		 * but it will also only recommend a movie that has Not been seen that has a rating of 3 and above.
+		 * Hence why not all movies from fixtures are recommended as only the ones that are rated 3 and above are recommended.
 		 */
 		assertTrue(movieRecommender.createRecommendationFromNeighbourhood(neighbourhood, movieRecommender.getUser(1l)).contains(movieRecommender.getMovie(4l)));
-		assertTrue(movieRecommender.createRecommendationFromNeighbourhood(neighbourhood, movieRecommender.getUser(1l)).contains(movieRecommender.getMovie(2l)));
+		assertTrue(movieRecommender.createRecommendationFromNeighbourhood(neighbourhood, movieRecommender.getUser(1l)).contains(movieRecommender.getMovie(3l)));
+		assertTrue(movieRecommender.createRecommendationFromNeighbourhood(neighbourhood, movieRecommender.getUser(1l)).contains(movieRecommender.getMovie(10l)));
+
+		assertFalse(movieRecommender.createRecommendationFromNeighbourhood(neighbourhood, movieRecommender.getUser(1l)).contains(movieRecommender.getMovie(2l)));
 
 		
 	}

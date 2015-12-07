@@ -162,7 +162,7 @@ public class MovieRecommenderAPI
 		ArrayList<Movie> topTenMovies = new ArrayList<>();
 		ArrayList<AverageRating> allAverageRatings = new ArrayList<>();
 		ArrayList<Movie>tempList = new ArrayList();
-		
+
 
 		//add an average rating to every movie in the database
 		for(Movie movie : getMovies())
@@ -200,16 +200,16 @@ public class MovieRecommenderAPI
 	 */
 	public ArrayList<Movie> recommendMovies(Long userId)
 	{
-		
+
 		User user = userIndex.get(userId);
 		if(user.ratings.size() == 0)
 		{
 			return topTenMovies();
 		}
-		
+
 		//Creates a neighbourhood of people who are similar to our user
 		ArrayList<User> neighbourhood = createNeighbourhood(user,1); 
-		
+
 		//I then want to generate a list of recommended movies based off my neighbourhood.
 		ArrayList<Movie> recommendations = createRecommendationFromNeighbourhood (neighbourhood, user);
 
@@ -230,7 +230,10 @@ public class MovieRecommenderAPI
 				//if the user hasn't rated the movie we assume they haven't seen it and recommend it to them
 				if(!user.hasRated(neighbourRating.movieId))
 				{
-					neighbourhoodRecommendations.add(movieIndex.get(neighbourRating.movieId));
+					if(neighbourRating.rating >=3)
+					{
+						neighbourhoodRecommendations.add(movieIndex.get(neighbourRating.movieId));
+					}
 				}
 			}
 		}
@@ -272,7 +275,7 @@ public class MovieRecommenderAPI
 		int moviesInCommon = 0;
 		//this will act as a guide to determine how similar they are by the difference between their ratings.
 		double ratingDifference = 0;
-		
+
 		/*go through our active users ratings
 		 * and compare them with our comparingUsers ratings
 		 * if the movieId is the same then they must have rated the same movie
@@ -285,15 +288,15 @@ public class MovieRecommenderAPI
 			{
 				Long movieId1 = rating1.movieId;
 				Movie movie1 = movieIndex.get(movieId1);
-				
+
 				Long movieId2 = rating2.movieId;
 				Movie movie2 = movieIndex.get(movieId2);
-				
+
 				if(movie1.id == movie2.id)
 				{
 					moviesInCommon ++;
 					ratingDifference += Math.abs(rating1.rating - rating2.rating);
-					
+
 				}
 			}
 		}

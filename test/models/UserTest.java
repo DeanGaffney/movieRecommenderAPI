@@ -159,10 +159,7 @@ public class UserTest
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
 		MovieRecommenderAPI movieRecommender2 = new MovieRecommenderAPI(serializer);
 		
-		//always make sure I am starting with blank movieRecommender objects
-		assertEquals(0,movieRecommender.getUsers().size());
-		assertEquals(0,movieRecommender2.getUsers().size());
-
+		
 		//put users from fixtures into movieRecommender and store them.
 		for(int i = 0; i<users.length;i++)
 		{
