@@ -9,7 +9,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import utils.Serializer;
 import utils.XMLSerializer;
@@ -18,10 +20,12 @@ import controllers.MovieRecommenderAPI;
 public class MovieTest 
 {
 
-	Movie movie = new Movie ("deansMovie", "1996","www.dean.com");
+	Movie movie = new Movie ("deansMovie", 1996,"www.dean.com");
 	MovieRecommenderAPI movieRecommender;
 	Data data;
 	
+	@Rule 
+	public final ExpectedException exception = ExpectedException.none();
 	//make a simple function to return the average of a movie
 	double getAverageRating(Movie movie)
 	{
@@ -36,12 +40,21 @@ public class MovieTest
 		
 		return averageMovieRating;
 	}
+	
+	
 	@Test
 	public void testCreate()
 	{
 		assertEquals ("deansMovie",                movie.title);
-		assertEquals ("1996",             		   movie.year);
+		assertEquals (1996,             		   movie.year);
 		assertEquals ("www.dean.com",              movie.url);   
+	}
+	
+	@Test 
+	public void blankTitle() throws Exception
+	{
+		exception.expect(Exception.class);
+		new Movie("","1990","www.blankTitle");
 	}
 
 	@Test
@@ -72,8 +85,8 @@ public class MovieTest
 	@Test
 	public void testEquals()
 	{
-		Movie movie2 = new Movie ("deansMovie", "1996","www.dean.com"); 
-		Movie movie3  = new Movie ("algorithmsMovie", "2015","www.algorithms.com"); 
+		Movie movie2 = new Movie ("deansMovie", 1996,"www.dean.com"); 
+		Movie movie3  = new Movie ("algorithmsMovie", 2015,"www.algorithms.com"); 
 
 		assertEquals(movie, movie);
 		assertEquals(movie, movie2);

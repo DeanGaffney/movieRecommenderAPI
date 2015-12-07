@@ -46,7 +46,7 @@ public class RatingTest
 
 
 	@Test
-	public void testEquals()
+	public void testEquals() throws Exception
 	{
 		Rating userRating2 = new Rating (users[0].id,movies[0].id,3);
 		Rating userRating3 = new Rating (users[2].id, movies[2].id,4); 
@@ -55,6 +55,7 @@ public class RatingTest
 		assertEquals(userRating, userRating2);
 		assertNotEquals(userRating, userRating3);
 	} 
+
 
 	@Test
 	public void getUserRating()
@@ -90,7 +91,7 @@ public class RatingTest
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
 		
 		//always make sure I am starting with blank movieRecommender objects
-		// especially in this case because you cant have a rating without both a movie and a user in this system.
+		// especially in this case because you can't have a rating without both a movie and a user in this system.
 		assertEquals(0,movieRecommender.getUsers().size());
 		assertEquals(0,movieRecommender.getMovies().size());
 
@@ -123,6 +124,13 @@ public class RatingTest
 		 */
 		assertEquals(3,users[0].ratings.size());
 		assertEquals(27,users[1].ratings.size());
+		
+		//check and make sure a user can't rate below -5 or above 5.
+		movieRecommender.addRating(1l,1l,-10);
+		assertEquals(3,users[0].ratings.size());
+		
+		movieRecommender.store();
+
 
 		MovieRecommenderAPI movieRecommender2 = new MovieRecommenderAPI(serializer);
 

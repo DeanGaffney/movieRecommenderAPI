@@ -8,15 +8,15 @@ public class Rating implements Comparable<Rating>
 	public int rating;
 	public Long movieId;
 	public Long userId;
-	
+
 	public Rating(Long userId,Long movieId,int rating)
 	{
 		this.movieId = movieId;
 		this.userId = userId;
-		setRating(this.rating);
+		setRating(rating);
 		this.rating = rating;
 	}
-	
+
 	// make sure they give an appropriate rating
 	public void setRating(int rating)
 	{
@@ -24,12 +24,12 @@ public class Rating implements Comparable<Rating>
 		{
 			this.rating = rating;
 		}
-		else
+		else  
 		{
 			System.out.println("This vaule is not in the rating system.Please rate between 0(very bad) and 5(Excellent)");
 		}
 	}
-	
+
 	public String toString()
 	{
 		return "User ID: " + userId + "\n" + "Movie ID: " + movieId + "\n" +
@@ -37,8 +37,8 @@ public class Rating implements Comparable<Rating>
 	}
 
 
-	
-	
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -68,7 +68,7 @@ public class Rating implements Comparable<Rating>
 	{
 		if(this.rating < that.rating) return -1;
 		if(this.rating > that.rating) return +1;
-		
+
 		return 0;
 	}
 }

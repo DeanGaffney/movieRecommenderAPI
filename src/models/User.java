@@ -43,6 +43,29 @@ public class User
 		this.gender = gender;
 		this.occupation = occupation;
 	}
+	
+	//returns all users ratings.
+	public List<Rating> getRatings()
+	{
+		return ratings;
+	}
+	
+	public boolean hasRated(Long movieId)
+	{
+		boolean hasRated = false;
+		for(Rating rating : ratings)
+		{
+			if(rating.movieId == movieId)
+			{
+				hasRated =  true;
+			}
+			else
+			{
+				hasRated = false;
+			}
+		}
+		return hasRated;
+	}
 
 	public String toString()
 	{

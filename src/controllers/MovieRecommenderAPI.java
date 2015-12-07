@@ -85,7 +85,7 @@ public class MovieRecommenderAPI
 		userIndex.remove(id);
 	}
 
-	public void addMovie(String title, String year, String url)
+	public void addMovie(String title, String year, String url) throws Exception
 	{
 		Movie movie = new Movie (title, year, url);
 		movieIndex.put(movie.id, movie);
@@ -95,7 +95,7 @@ public class MovieRecommenderAPI
 	{
 		movieIndex.put(movie.id, movie);
 	}
-	
+
 	public Collection<Movie> getMovies ()
 	{
 		return movieIndex.values();
@@ -118,7 +118,7 @@ public class MovieRecommenderAPI
 		return movieIndex.get(movieID);
 	}
 
-	public void addRating(Long userId,Long movieId,int rating)
+	public void addRating(Long userId,Long movieId,int rating) throws Exception
 	{
 		Rating userRating = new Rating(userId,movieId,rating);
 
@@ -130,7 +130,7 @@ public class MovieRecommenderAPI
 	}
 
 	//used for reading in from file to add an entire object.
-	public void addFileRating(Rating rating)
+	public void addFileRating(Rating rating)throws Exception
 	{
 		Long userId = rating.userId;
 		User user = getUser(userId);
@@ -185,130 +185,120 @@ public class MovieRecommenderAPI
 		return topTenMovies;
 	}
 
+	/*This algorithm is going to be based off the 'Neighbourhood' or nth nearest neighbour algorithm'.
+	 * The idea is to make a neighbourhood (list) of neighbours(users) which are similar to our user.
+	 * If another user is similar to our 'active user' we add them to  our neighbourhood'. This will result in 
+	 * a list of other users which are similar to our user in question . Then I can go through each neighbour
+	 * in the neighbourhood and check their ratings. If the user in question hasn't rated a movie then recommend that movie.
+	 */
 	public ArrayList<Movie> recommendMovies(Long userId)
 	{
-
-		ArrayList<Movie>recommendedMovies = new ArrayList<>();
-		User user = getUser(userId);
-		/* I need to be able to get all of the users ratings and check
-		 * the given users ratings against all other user ratings.
-		 * I should apply the cross product with the given users ratings
-		 * against all others user ratings for likeliness
-		 */
-
-		//if it's a new user and they have never rated before just recommend top ten movies.
+		
+		User user = userIndex.get(userId);
 		if(user.ratings.size() == 0)
 		{
-			topTenMovies();
+			
 		}
+		
+		//Creates a neighbourhood of people who are similar to our user
+		ArrayList<User> neighbourhood = createNeighbourhood(user,1); 
+		
+		//I then want to generate a list of recommended movies based off my neighbourhood.
+		ArrayList<Movie> recommendations = createRecommendationFromNeighbourhood (neighbourhood, user);
 
+		System.out.println(recommendations);
+		return recommendations;
 
-		for(int i = 0;i < user.ratings.size()-1;i++)
-		{
-			Long userMovieId = user.ratings.get(i).movieId;
-			int userRating = user.ratings.get(i).rating;
-
-			for(Long j = 1l; j < getUsers().size()-1;j++)
-			{
-				User comparingUser = getUser(j);
-				if(comparingUser.id!=user.id)
-				{
-					int similarity = compareUserRatings(user,comparingUser);
-					if(similarity > 0 && similarity <=5)
-					{
-						for(Rating rating : comparingUser.ratings)
-						{
-							if(!user.ratings.contains(rating.movieId))
-							{
-								recommendedMovies.add(movieIndex.get(rating.movieId));
-							}
-						}
-					}
-				}
-			}
-
-		}
-		System.out.println(recommendedMovies);
-		return recommendedMovies;
 	}
 
-	//this method will return a similarity rating between two users
-	// i will use this for my recommendations method
-	public int compareUserRatings(User user1,User user2)
+	private ArrayList<Movie> createRecommendationFromNeighbourhood(ArrayList<User> neighbourhood, User user) 
 	{
-		//use this to rate users on their similarity
-		int usersSimilarity = 0;
-		int ratingDifference = 0;
-		int differenceRange = 1;
-		// will set true if they are within similarity range
-		boolean similar = false;
-
-		//will need both users ratings to compare them and find similarity
-		ArrayList<Rating> user1Ratings = new ArrayList<>();
-		ArrayList<Rating> user2Ratings = new ArrayList<>();
-
-		//populate array with user1 ratings
-		for(Rating rating : user1.ratings)
+		ArrayList<Movie> neighbourhoodRecommendations = new ArrayList<>();
+		//loop over all the people in our neighbourhood
+		for(User neighbour : neighbourhood)
 		{
-			user1Ratings.add(new Rating(rating.userId,rating.movieId,rating.rating));
-		}
-
-		//populate array with user2 ratings
-		for(Rating rating : user2.ratings)
-		{
-			user2Ratings.add(new Rating(rating.userId,rating.movieId,rating.rating));
-		}
-
-		//sort both arrays based on highest rating.
-		Collections.sort(user1Ratings);
-		Collections.sort(user2Ratings);
-
-		//go through each rating that user1 has so we can compare them with user2
-		for(Rating rating : user1Ratings)
-		{
-			//get the moveId from the rating to make sure they compare same movies
-			Long ratingMovieId = rating.movieId;
-
-			for(int i = 0; i < user2.ratings.size();i++)
+			//if user has rated movie ---> write a method here that returns true if a user has rated that movie.
+			// go through all ratings for each user in the neighbourhood
+			for(Rating neighbourRating : neighbour.ratings)
 			{
-				Long comparingMovieId = user2.ratings.get(i).movieId;
-				if(ratingMovieId == comparingMovieId)
+				//if the user hasn't rated the movie we assume they haven't seen it and recommend it to them
+				if(!user.hasRated(neighbourRating.movieId))
 				{
-					ratingDifference = rating.rating - user2.ratings.get(i).rating;
-					if(ratingDifference <= 1)
-					{
-						similar = true;
-						usersSimilarity +=5;
-					}
-					else if(ratingDifference > 1 && ratingDifference <=2)
-					{
-						similar = true;
-						usersSimilarity +=4;
-					}
-					else if(ratingDifference > 2 && ratingDifference <=3)
-					{
-						similar = true;
-						usersSimilarity +=3;
-					}
-					else if(ratingDifference > 3 && ratingDifference <=4)
-					{
-						similar = true;
-						usersSimilarity +=2;
-					}
-					else if(ratingDifference > 4 && ratingDifference <=5)
-					{
-						similar = true;
-						usersSimilarity +=1;
-					}
-					else if(ratingDifference > 5)
-					{
-						usersSimilarity = 0;
-					}
+					neighbourhoodRecommendations.add(movieIndex.get(neighbourRating.movieId));
 				}
 			}
 		}
-		return usersSimilarity;
+		
+		return neighbourhoodRecommendations;
+	}
 
+	/*our neighbourhood is created by looping through all users and adding similar users
+	 * into our neighbourhood.
+	 */
+	private ArrayList<User> createNeighbourhood(User activeUser,double similarityThreshold)
+	{
+		ArrayList<User> neighbourhood = new ArrayList<>();
+		for(User comparingUser : getUsers())
+		{
+			if(comparingUser.id != activeUser.id)
+			{
+				// Inside here I want to return some number that represents a similarity between the two users
+				double similarity = calculateSimilarity(activeUser,comparingUser);//write this method
+
+				/*this will be the average difference between all movies rated by the users.
+				 * if this is the case add them to the neighbourhood. However a problem may arise here,
+				 * depending on what I make the threshold value be it could be the case that nobody
+				 * fits into this threshold value and therefore my 'neighbourhood' could have 0 users in it.
+				 */
+				if(similarity < similarityThreshold) 
+				{
+					neighbourhood.add(comparingUser);
+				}
+			}
+		}
+		return neighbourhood;
+	}
+
+	// this method will calculate the similarity between two users and determine.
+	// I will user to determine if a user is similar enough to be apart of the neighbourhood.
+	private double calculateSimilarity(User activeUser, User comparingUser) 
+	{
+		//keeps track of the same movies they have rated
+		int moviesInCommon = 0;
+		//this will act as a guide to determine how similar they are by the difference between their ratings.
+		double ratingDifference = 0;
+		
+		/*go through our active users ratings
+		 * and compare them with our comparingUsers ratings
+		 * if the movieId is the same then they must have rated the same movie
+		 * so I will then find the difference between ratings and see how similar they are with
+		 * a threshold value.
+		 */
+		for(Rating rating1 : activeUser.getRatings())
+		{
+			for(Rating rating2 : comparingUser.getRatings())
+			{
+				Long movieId1 = rating1.movieId;
+				Movie movie1 = movieIndex.get(movieId1);
+				
+				Long movieId2 = rating2.movieId;
+				Movie movie2 = movieIndex.get(movieId2);
+				
+				if(movie1.id == movie2.id)
+				{
+					moviesInCommon ++;
+					ratingDifference += Math.abs(rating1.rating - rating2.rating);
+					
+				}
+			}
+		}
+		if(moviesInCommon > 0)
+		{
+			//this will give me back the average ratings over all movies rated by both users.
+			return ratingDifference / moviesInCommon;
+		}
+		//if they have no movies in common I will return a large difference which will indicate they are definitely not in similar.
+		return Integer.MAX_VALUE;
 	}
 }
 

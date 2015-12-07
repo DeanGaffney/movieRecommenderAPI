@@ -2,8 +2,8 @@ package models;
 
 import java.util.List;
 
-public class Fixtures
-{
+public class Fixtures 
+{ 	
 	public static User[] users =
 		{
 			new User ("dean", "gaffney", 19, "m",  "mechanic"),
@@ -14,18 +14,18 @@ public class Fixtures
 
 	public static Movie[] movies =
 		{
-			new Movie("deansMovie", "1996","www.dean.com"),
-			new Movie("davesMovie", "2000","www.dave.com"),
-			new Movie("orlaithsMovie", "1960","www.orlaith.com"),
-			new Movie("milliesMovie", "1995","www.millie.com"),
-			new Movie("algorithmsMovie","1980","www.algorithms.com"),
-			new Movie("kevinsMind","1970","www.kevsmind.org"),
-			new Movie("spinalTap","1983","www.spinaltap.com"),
-			new Movie("unity3D","2007","www.unity.com"),
-			new Movie("kung-fury","2015","www.kung-fury.com"),
-			new Movie("nosferatu","1922","www.nosferatu.com"),
+			new Movie("deansMovie", 1996,"www.dean.com"),
+			new Movie("davesMovie", 2000,"www.dave.com"),
+			new Movie("orlaithsMovie", 1960,"www.orlaith.com"),
+			new Movie("milliesMovie", 1995,"www.millie.com"),
+			new Movie("algorithmsMovie",1980,"www.algorithms.com"),
+			new Movie("kevinsMind",1970,"www.kevsmind.org"),
+			new Movie("spinalTap",1983,"www.spinaltap.com"),
+			new Movie("unity3D",2007,"www.unity.com"),
+			new Movie("kung-fury",2015,"www.kung-fury.com"),
+			new Movie("nosferatu",1922,"www.nosferatu.com"),
 		};
-	public static Rating[] ratings = 
+	public static Rating[] ratings  = 
 		{
 			new Rating(users[0].id,movies[0].id,3),
 			new Rating(users[0].id,movies[0].id,4),
@@ -66,6 +66,5 @@ public class Fixtures
 			new Rating(users[1].id,movies[9].id,4),
 			new Rating(users[1].id,movies[9].id,1),
 			new Rating(users[1].id,movies[9].id,1),
-			
 		};
 }

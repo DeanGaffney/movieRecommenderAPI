@@ -14,12 +14,25 @@ public class Movie
 
 	public String title;
 	public String year;
+	public int fixtureYear;
 	public String url;
 
 	public List<Rating> ratings = new ArrayList<>();
 
-	public Movie(String title, String year, String url)
+	public Movie(String title, String year, String url) throws Exception
 	{
+		if(title.isEmpty())
+		{
+			throw new Exception("You must enter a title for the movie!");
+		}
+		if(year.isEmpty())
+		{
+			throw new Exception("You must enter a year for the movie!");
+		}
+		if(url.isEmpty())
+		{
+			throw new Exception("You must enter a title for the movie!");
+		}
 		this.id = counter++;
 		this.title = title;
 		this.year = year;
@@ -32,6 +45,16 @@ public class Movie
 		this.title = title;
 		this.year = year;
 		this.url = url;
+
+		counter++;
+	}
+	
+	//this constructor is used for fixtures because it can't handle exceptions
+	public Movie(String fixtureTitle, int fixtureYear, String fixtureUrl) 
+	{
+		this.title = fixtureTitle;
+		this.fixtureYear = fixtureYear;
+		this.url = fixtureUrl;
 
 		counter++;
 	}

@@ -68,7 +68,7 @@ public class Main
 
 	@Command(description="Add a new User")
 	public void addUser (@Param(name="first name") String firstName, @Param(name="last name") String lastName,
-			@Param(name="age") int age, @Param(name="gender") String gender, @Param(name="occupation") String occupation)
+			@Param(name="age") int age, @Param(name="gender") String gender, @Param(name="occupation") String occupation) throws Exception
 	{
 		movieRecommender.createUser(firstName, lastName, age, gender, occupation);
 	}
@@ -86,7 +86,7 @@ public class Main
 		System.out.println(movies);
 	}
 	@Command(description="Add a Movie")
-	public void addMovie (@Param(name="title") String title, @Param(name="year") String year, @Param(name="url") String url)
+	public void addMovie (@Param(name="title") String title, @Param(name="year") String year, @Param(name="url") String url)throws Exception
 	{
 		movieRecommender.addMovie(title, year, url);
 	}
@@ -110,9 +110,16 @@ public class Main
 	}
 	
 	@Command(description="Add a rating")
-	public void addRating(@Param(name="userId") Long userId, @Param(name="movieId")Long movieId, @Param(name="rating") int rating)
-	{
-		movieRecommender.addRating(userId, movieId, rating);
+	public void addRating(@Param(name="userId") Long userId, @Param(name="movieId")Long movieId, @Param(name="rating") int rating) throws Exception
+	{	
+		try
+		{
+			movieRecommender.addRating(userId, movieId, rating);
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	@Command(description="List Top 10 Movies")
@@ -122,7 +129,7 @@ public class Main
 	}
 	
 	@Command(description="Recommend Movies")
-	public void recommendMovies(@Param(name="userId") Long userId)
+	public void recommendMovies(@Param(name="userId") Long userId) throws Exception
 	{
 		movieRecommender.recommendMovies(userId);
 	}

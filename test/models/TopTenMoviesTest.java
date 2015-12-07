@@ -24,13 +24,13 @@ public class TopTenMoviesTest
 	 */
 	@SuppressWarnings("deprecation")
 	@Test
-	public void listTopFiveMovies()
+	public void listTopFiveMovies() throws Exception
 	{
 		ArrayList<AverageRating> allAverageRatings = new ArrayList<>();
 		ArrayList<AverageRating> topFiveMovies = new ArrayList<>();
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(null);
-		
-		for(int i = 0; i<users.length;i++)
+		//populate my movieRecommender object
+		for(int i = 0; i < users.length;i++)
 		{
 			movieRecommender.createUser(users[i]);
 		}
@@ -45,11 +45,13 @@ public class TopTenMoviesTest
 			movieRecommender.addRating(rating.userId, rating.movieId, rating.rating);
 		}
 		
+		//give all movies an averageRating
 		for(Movie movie : movieRecommender.getMovies())
 		{
 			allAverageRatings.add(new AverageRating(movie.id,movie.averageRating()));
 		}
 		
+		//sort the list based on highest rating
 		Collections.sort(allAverageRatings);
 		System.out.println(allAverageRatings);
 
@@ -66,11 +68,11 @@ public class TopTenMoviesTest
 		
 		assertNotEquals(topFiveMovies.size(),allAverageRatings.size());
 		assertEquals(topFiveMovies.size(),allAverageRatings.size()/2);
-		//check to make sure that topFiveMovies list is equal to upper half of allAverageRatingsList
-		for(AverageRating averageRating : topFiveMovies)
-		{
-			
-		}
+		
+		//these should be the same objects if the split of the array was done correctly
+		assertSame(topFiveMovies.get(0),allAverageRatings.get(5));
+		assertSame(topFiveMovies.get(1),allAverageRatings.get(6));
+		
 	}
 
 }
