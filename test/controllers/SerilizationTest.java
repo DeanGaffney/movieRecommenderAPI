@@ -39,7 +39,7 @@ public class SerilizationTest
 	{
 		for (User user : users)
 		{
-			movieRecommender.createUser(user.firstName,user.lastName,user.age,user.gender,user.occupation);
+			movieRecommender.createUser(user);
 		}
 	}
 

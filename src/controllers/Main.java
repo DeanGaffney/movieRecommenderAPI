@@ -70,7 +70,15 @@ public class Main
 	public void addUser (@Param(name="first name") String firstName, @Param(name="last name") String lastName,
 			@Param(name="age") int age, @Param(name="gender") String gender, @Param(name="occupation") String occupation) throws Exception
 	{
-		movieRecommender.createUser(firstName, lastName, age, gender, occupation);
+		try 
+		{
+			movieRecommender.createUser(firstName, lastName, age, gender, occupation);
+		} 
+		catch (Exception e)
+		{
+			System.out.println("Make sure you entered all data in the correct format!");
+			e.printStackTrace();
+		}
 	}
 
 	@Command(description="Delete a User")
@@ -88,7 +96,15 @@ public class Main
 	@Command(description="Add a Movie")
 	public void addMovie (@Param(name="title") String title, @Param(name="year") String year, @Param(name="url") String url)throws Exception
 	{
-		movieRecommender.addMovie(title, year, url);
+		try 
+		{
+			movieRecommender.addMovie(title, year, url);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Make sure you entered all data in the correct format!");
+			e.printStackTrace();
+		}
 	}
 	
 	@Command(description="Get a Movie's details")
@@ -118,6 +134,7 @@ public class Main
 		}
 		catch (Exception e) 
 		{
+			System.out.println("Make sure you entered all data in the correct format!");
 			e.printStackTrace();
 		}
 	}

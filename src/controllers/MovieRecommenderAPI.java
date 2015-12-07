@@ -19,8 +19,8 @@ public class MovieRecommenderAPI
 {
 	private Serializer serializer;
 
-	private Map<Long,User>   userIndex = new HashMap<>();
-	private Map<Long, Movie> movieIndex = new HashMap<>();
+	public static Map<Long,User>   userIndex = new HashMap<>();
+	public static Map<Long, Movie> movieIndex = new HashMap<>();
 	//public so I can test that they are added
 	public ArrayList<AverageRating> averageRatings = new ArrayList<>();
 
@@ -66,7 +66,7 @@ public class MovieRecommenderAPI
 		userIndex.put(user.id, user);
 	}
 
-	public void createUser(String firstName, String lastName, int age, String gender, String occupation)
+	public void createUser(String firstName, String lastName, int age, String gender, String occupation) throws Exception
 	{
 		User user = new User (firstName, lastName, age, gender, occupation);
 		userIndex.put(user.id, user);
@@ -217,7 +217,7 @@ public class MovieRecommenderAPI
 		return recommendations;
 	}
 
-	private ArrayList<Movie> createRecommendationFromNeighbourhood(ArrayList<User> neighbourhood, User user) 
+	public ArrayList<Movie> createRecommendationFromNeighbourhood(ArrayList<User> neighbourhood, User user) 
 	{
 		ArrayList<Movie> neighbourhoodRecommendations = new ArrayList<>();
 		//loop over all the people in our neighbourhood
@@ -234,14 +234,13 @@ public class MovieRecommenderAPI
 				}
 			}
 		}
-		
 		return neighbourhoodRecommendations;
 	}
 
 	/*our neighbourhood is created by looping through all users and adding similar users
 	 * into our neighbourhood.
 	 */
-	private ArrayList<User> createNeighbourhood(User activeUser,double similarityThreshold)
+	public ArrayList<User> createNeighbourhood(User activeUser,double similarityThreshold)
 	{
 		ArrayList<User> neighbourhood = new ArrayList<>();
 		for(User comparingUser : getUsers())
@@ -267,7 +266,7 @@ public class MovieRecommenderAPI
 
 	// this method will calculate the similarity between two users and determine.
 	// I will user to determine if a user is similar enough to be apart of the neighbourhood.
-	private double calculateSimilarity(User activeUser, User comparingUser) 
+	public double calculateSimilarity(User activeUser, User comparingUser) 
 	{
 		//keeps track of the same movies they have rated
 		int moviesInCommon = 0;

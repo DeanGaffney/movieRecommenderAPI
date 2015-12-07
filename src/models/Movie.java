@@ -19,6 +19,7 @@ public class Movie implements Comparable<Movie>
 
 	public List<Rating> ratings = new ArrayList<>();
 
+	//used for console input
 	public Movie(String title, String year, String url) throws Exception
 	{
 		if(title.isEmpty())
@@ -31,7 +32,7 @@ public class Movie implements Comparable<Movie>
 		}
 		if(url.isEmpty())
 		{
-			throw new Exception("You must enter a title for the movie!");
+			throw new Exception("You must enter a url for the movie!");
 		}
 		this.id = counter++;
 		this.title = title;
@@ -39,6 +40,7 @@ public class Movie implements Comparable<Movie>
 		this.url = url;
 	}
 
+	//used for reading in from file/this constructor is also used for fixtures because fixtures cant handle exceptions.
 	public Movie(Long id, String title, String year, String url) 
 	{
 		this.id = id;
@@ -49,15 +51,15 @@ public class Movie implements Comparable<Movie>
 		counter++;
 	}
 	
-	//this constructor is used for fixtures because it can't handle exceptions
+	/*//this constructor is used for fixtures because it can't handle exceptions
 	public Movie(String fixtureTitle, int fixtureYear, String fixtureUrl) 
 	{
 		this.title = fixtureTitle;
 		this.fixtureYear = fixtureYear;
 		this.url = fixtureUrl;
 
-		counter++;
-	}
+		this.id = counter++;
+	}*/
 
 	public double averageRating()
 	{
@@ -74,6 +76,7 @@ public class Movie implements Comparable<Movie>
 
 	}
 	
+	//returns all movie ratings.
 	private List<Rating> getRatings()
 	{
 		return ratings;

@@ -12,7 +12,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import utils.Serializer;
 import utils.XMLSerializer;
@@ -21,18 +23,64 @@ import controllers.MovieRecommenderAPI;
 
 public class UserTest
 {
-	User dean = new User ("dean", "gaffney", 19, "m",  "mechanic");
+	User dean = new User (1l,"dean", "gaffney", 19, "m",  "mechanic");
 	MovieRecommenderAPI movieRecommender;
+	
+	@Rule 
+	public final ExpectedException exception = ExpectedException.none();
+	
 	@Test
 	public void testCreate()
 	{
+		assertSame(1l,                     dean.id);
 		assertEquals ("dean",                dean.firstName);
 		assertEquals ("gaffney",             dean.lastName);
 		assertEquals (19,                    dean.age);   
 		assertEquals ("m",                   dean.gender); 
 		assertEquals ("mechanic",            dean.occupation);
 	}
+	@Test 
+	public void blankfirstName() throws Exception
+	{
+		exception.expect(Exception.class);
+		new User("","Gaffney",19,"m","mechanic");
+	}
+	
+	@Test
+	public void blankLastName() throws Exception
+	{
+		exception.expect(Exception.class);
+		new User("Dean","",19,"m","mechanic");
+	}
 
+	@Test 
+	public void highAge() throws Exception
+	{
+		exception.expect(Exception.class);
+		new User("Dean","Gaffney",1000,"m","mechanic");
+	}
+	
+	public void lowAge() throws Exception
+	{
+		exception.expect(Exception.class);
+		new User("Dean","Gaffney",-1,"m","mechanic");
+	}
+	
+	@Test 
+	public void blankGender() throws Exception
+	{
+		exception.expect(Exception.class);
+		new User("Dean","Gaffney",19,"","mechanic");
+	}
+	
+	@Test 
+	public void blankOccupation() throws Exception
+	{
+		exception.expect(Exception.class);
+		new User("Dean","Gaffney",19,"m","");
+	}
+	
+	
 	@Test
 	public void testIds()
 	{
@@ -62,8 +110,8 @@ public class UserTest
 	@Test
 	public void testEquals()
 	{
-		User dean2 = new User ("dean", "gaffney", 19, "m",  "mechanic"); 
-		User bart   = new User ("bart", "simpson", 12, "m",  "skateboarder"); 
+		User dean2 = new User (1l,"dean", "gaffney", 19, "m",  "mechanic"); 
+		User bart   = new User (2l,"bart", "simpson", 12, "m",  "skateboarder"); 
 
 		assertEquals(dean, dean);
 		assertEquals(dean, dean2);
@@ -164,13 +212,13 @@ public class UserTest
 		 * id's against the id's of movieRecommender2 assuring that the getUser(id) function
 		 * is working correctly.
 		 */
-		for(Long i = 2l;i< movieRecommender.getUsers().size();i++)
+		for(Long i = 1l;i< movieRecommender.getUsers().size();i++)
 		{
 			movieRecommender.deleteUser(i);
 		}
-		movieRecommender.store();
 		
-		assertNotEquals(movieRecommender.getUsers().size(),movieRecommender2.getUsers().size());
+		assertNotEquals(0,movieRecommender.getUsers().size());
+		movieRecommender.store();
 		
 		movieRecommender2.load();
 		assertEquals(movieRecommender.getUsers().size(),movieRecommender2.getUsers().size());

@@ -6,7 +6,6 @@ import static models.Fixtures.users;
 
 import java.io.File;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.junit.Rule;
@@ -20,12 +19,13 @@ import controllers.MovieRecommenderAPI;
 public class MovieTest 
 {
 
-	Movie movie = new Movie ("deansMovie", 1996,"www.dean.com");
+	Movie movie = new Movie (1l,"deansMovie","1996","www.dean.com");
 	MovieRecommenderAPI movieRecommender;
 	Data data;
 	
 	@Rule 
 	public final ExpectedException exception = ExpectedException.none();
+	
 	//make a simple function to return the average of a movie
 	double getAverageRating(Movie movie)
 	{
@@ -45,8 +45,9 @@ public class MovieTest
 	@Test
 	public void testCreate()
 	{
+		assertSame(1l, 						   movie.id);
 		assertEquals ("deansMovie",                movie.title);
-		assertEquals (1996,             		   movie.year);
+		assertEquals ("1996",             		   movie.year);
 		assertEquals ("www.dean.com",              movie.url);   
 	}
 	
@@ -56,6 +57,20 @@ public class MovieTest
 		exception.expect(Exception.class);
 		new Movie("","1990","www.blankTitle");
 	}
+	
+	@Test
+	public void blankYear() throws Exception
+	{
+		exception.expect(Exception.class);
+		new Movie("blankIdMovie","","www.blankId.com");
+	}
+	@Test
+	public void blankUrl() throws Exception
+	{
+		exception.expect(Exception.class);
+		new Movie("blankIdMovie","1990","");
+	}
+	
 
 	@Test
 	public void testIds()
@@ -85,8 +100,8 @@ public class MovieTest
 	@Test
 	public void testEquals()
 	{
-		Movie movie2 = new Movie ("deansMovie", 1996,"www.dean.com"); 
-		Movie movie3  = new Movie ("algorithmsMovie", 2015,"www.algorithms.com"); 
+		Movie movie2 = new Movie (1l,"deansMovie", "1996","www.dean.com"); 
+		Movie movie3  = new Movie (2l,"algorithmsMovie", "2005","www.algorithms.com"); 
 
 		assertEquals(movie, movie);
 		assertEquals(movie, movie2);
@@ -160,25 +175,21 @@ public class MovieTest
 		File usersFile = new File("testdatastore.xml");
 		Serializer serializer = new XMLSerializer(usersFile);
 		MovieRecommenderAPI movieRecommender = new MovieRecommenderAPI(serializer);
-		MovieRecommenderAPI movieRecommender2 = new MovieRecommenderAPI(serializer);
 		
-		//always make sure I am starting with blank movieRecommender objects
-		assertEquals(0,movieRecommender.getMovies().size());
-		assertEquals(0,movieRecommender2.getMovies().size());
-
+		
 		
 		for(int i = 0; i<movies.length;i++)
 		{
-			movieRecommender.addMovie(movies[i]);
+			movieRecommender.addMovie(movies[i].title,movies[i].year,movies[i].url);
 		}
 		
 		movieRecommender.store();
-		
+		MovieRecommenderAPI movieRecommender2 = new MovieRecommenderAPI(serializer);
 		movieRecommender2.load();
 		
 		movieRecommender.deleteMovie(2l);
 		
-		assertNotEquals(movieRecommender.getMovies().size(),movieRecommender2.getMovies().size());
+		assertNotEquals(9,movieRecommender.getMovies().size());
 		
 		movieRecommender2.deleteMovie(3l);
 		
@@ -215,7 +226,7 @@ public class MovieTest
 		System.out.println(movieRecommender.getMovie(2l).averageRating());
 		
 		//make sure our movieRecommender supplies the same result
-		assertEquals(1.0,movieRecommender.getMovie(2l).averageRating(),.1);
+		assertEquals(4.0,movieRecommender.getMovie(2l).averageRating(),.1);
 		
 		//now make sure our local method and movieRecommender return the same averages for movies.
 		assertEquals(movieRecommender.getMovie(2l).averageRating(),getAverageRating(movieRecommender.getMovie(2l)),.1);

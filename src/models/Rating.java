@@ -1,7 +1,7 @@
 package models;
 
 
-import com.google.common.base.Objects;
+
 
 public class Rating implements Comparable<Rating>
 {
@@ -13,10 +13,9 @@ public class Rating implements Comparable<Rating>
 	{
 		this.movieId = movieId;
 		this.userId = userId;
-		setRating(rating);
 		this.rating = rating;
 	}
-
+	
 	// make sure they give an appropriate rating
 	public void setRating(int rating)
 	{

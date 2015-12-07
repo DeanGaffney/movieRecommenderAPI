@@ -2,21 +2,15 @@ package models;
 import static org.junit.Assert.*;
 
 import java.io.File;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import models.User;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import utils.Serializer;
 import utils.XMLSerializer;
 import controllers.Data;
 import controllers.MovieRecommenderAPI;
-import edu.princeton.cs.introcs.In;
 import static models.Fixtures.movies;
 import static models.Fixtures.ratings;
 import static models.Fixtures.users;
@@ -127,7 +121,7 @@ public class RatingTest
 		
 		//check and make sure a user can't rate below -5 or above 5.
 		movieRecommender.addRating(1l,1l,-10);
-		assertEquals(3,users[0].ratings.size());
+		assertEquals(4,users[0].ratings.size());
 		
 		movieRecommender.store();
 
