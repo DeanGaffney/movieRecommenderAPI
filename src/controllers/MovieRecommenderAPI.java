@@ -161,13 +161,13 @@ public class MovieRecommenderAPI
 		//the other will contain a sub list of the allAverageRatings which will return just the last ten movies of the sorted list.
 		ArrayList<Movie> topTenMovies = new ArrayList<>();
 		ArrayList<AverageRating> allAverageRatings = new ArrayList<>();
-		ArrayList<Movie>tempList = new ArrayList();
+		ArrayList<Movie>tempList = new ArrayList<>();
 
 
 		//add an average rating to every movie in the database
 		for(Movie movie : getMovies())
 		{
-			//movie has to have more than five ratings to be in top 10
+			//movie has to have more than fifty ratings to be in top 10
 			//making this check because if a movie only has 1 or 2 ratings the average isn't going to be very accurate.
 			if(movie.ratings.size() > 50)
 			{
