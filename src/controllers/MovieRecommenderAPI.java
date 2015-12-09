@@ -208,6 +208,7 @@ public class MovieRecommenderAPI
 		}
 
 		//Creates a neighbourhood of people who are similar to our user
+		//the 2nd argument '1' is used as the threshold value ---> making this smaller makes for a tighter similarity result,bigger = looser similarity etc...
 		ArrayList<User> neighbourhood = createNeighbourhood(user,1); 
 
 		//I then want to generate a list of recommended movies based off my neighbourhood.
