@@ -201,6 +201,7 @@ public class MovieRecommenderAPI
 	public ArrayList<Movie> recommendMovies(Long userId)
 	{
 
+		//if user has no ratings then recommend the top ten movies.
 		User user = userIndex.get(userId);
 		if(user.ratings.size() == 0)
 		{
