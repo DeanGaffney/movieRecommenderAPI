@@ -4,7 +4,7 @@
     <vector>
       <default>
         <capacityIncrement>0</capacityIncrement>
-        <elementCount>4</elementCount>
+        <elementCount>8</elementCount>
         <elementData>
           <map>
             <entry>
@@ -33,153 +33,7 @@
                     <userId>1</userId>
                   </models.Rating>
                   <models.Rating>
-                    <rating>5</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-4</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-4</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-4</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating reference="../models.Rating[28]"/>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>1</movieId>
-                    <userId>1</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-4</rating>
+                    <rating>-10</rating>
                     <movieId>1</movieId>
                     <userId>1</userId>
                   </models.Rating>
@@ -196,276 +50,6 @@
                 <gender>m</gender>
                 <occupation>guitarist</occupation>
                 <ratings>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>1</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>10</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>3</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>4</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>0</rating>
-                    <movieId>2</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>9</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-4</rating>
-                    <movieId>5</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-2</rating>
-                    <movieId>7</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-1</rating>
-                    <movieId>8</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>1</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>10</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>3</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>4</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>0</rating>
-                    <movieId>2</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>9</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-4</rating>
-                    <movieId>5</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-2</rating>
-                    <movieId>7</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-1</rating>
-                    <movieId>8</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>1</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>10</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>3</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>4</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>0</rating>
-                    <movieId>2</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>9</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-4</rating>
-                    <movieId>5</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-2</rating>
-                    <movieId>7</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-1</rating>
-                    <movieId>8</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>2</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>2</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>2</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>3</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>3</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>3</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>4</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>4</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>4</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>5</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>0</rating>
-                    <movieId>5</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>5</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-4</rating>
-                    <movieId>6</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-2</rating>
-                    <movieId>6</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-1</rating>
-                    <movieId>6</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>7</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-1</rating>
-                    <movieId>7</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>7</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>8</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>8</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>8</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>9</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>9</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>0</rating>
-                    <movieId>9</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>10</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>10</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>10</movieId>
-                    <userId>2</userId>
-                  </models.Rating>
                   <models.Rating>
                     <rating>5</rating>
                     <movieId>2</movieId>
@@ -613,53 +197,7 @@
                 <age>20</age>
                 <gender>f</gender>
                 <occupation>hairdresser</occupation>
-                <ratings>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>2</movieId>
-                    <userId>3</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-1</rating>
-                    <movieId>2</movieId>
-                    <userId>3</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>2</movieId>
-                    <userId>3</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>2</movieId>
-                    <userId>3</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-1</rating>
-                    <movieId>2</movieId>
-                    <userId>3</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>2</movieId>
-                    <userId>3</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>2</movieId>
-                    <userId>3</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>-1</rating>
-                    <movieId>2</movieId>
-                    <userId>3</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>2</movieId>
-                    <userId>3</userId>
-                  </models.Rating>
-                </ratings>
+                <ratings/>
               </models.User>
             </entry>
             <entry>
@@ -671,148 +209,11 @@
                 <age>1</age>
                 <gender>f</gender>
                 <occupation>dog</occupation>
-                <ratings>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>0</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>4</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>10</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>10</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>0</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>4</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>10</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>10</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>2</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>5</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>3</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>0</rating>
-                    <movieId>3</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>4</rating>
-                    <movieId>4</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>10</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating>
-                    <rating>1</rating>
-                    <movieId>10</movieId>
-                    <userId>4</userId>
-                  </models.Rating>
-                  <models.Rating reference="../../../../entry[2]/models.User/ratings/models.Rating[55]"/>
-                </ratings>
+                <ratings/>
               </models.User>
             </entry>
           </map>
-          <long>30</long>
+          <long>5</long>
           <map>
             <entry>
               <long>1</long>
@@ -827,38 +228,6 @@
                   <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[2]"/>
                   <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[3]"/>
                   <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[4]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[5]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[6]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[7]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[8]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[9]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[10]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[11]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[12]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[13]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[14]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[15]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[16]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[17]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[18]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[10]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[19]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[20]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[21]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[22]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[23]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[24]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[25]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[26]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[27]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[19]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[29]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[30]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[31]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[28]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[33]"/>
-                  <models.Rating reference="../../../../../map/entry/models.User/ratings/models.Rating[34]"/>
                 </ratings>
               </models.Movie>
             </entry>
@@ -871,24 +240,9 @@
                 <fixtureYear>0</fixtureYear>
                 <url>www.dave.com</url>
                 <ratings>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[5]"/>
-                  <models.Rating reference="../../../../../map/entry[3]/models.User/ratings/models.Rating"/>
-                  <models.Rating reference="../../../../../map/entry[3]/models.User/ratings/models.Rating[2]"/>
-                  <models.Rating reference="../../../../../map/entry[3]/models.User/ratings/models.Rating[3]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[14]"/>
-                  <models.Rating reference="../../../../../map/entry[3]/models.User/ratings/models.Rating[4]"/>
-                  <models.Rating reference="../../../../../map/entry[3]/models.User/ratings/models.Rating[5]"/>
-                  <models.Rating reference="../../../../../map/entry[3]/models.User/ratings/models.Rating[6]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[23]"/>
-                  <models.Rating reference="../../../../../map/entry[3]/models.User/ratings/models.Rating[7]"/>
-                  <models.Rating reference="../../../../../map/entry[3]/models.User/ratings/models.Rating[8]"/>
-                  <models.Rating reference="../../../../../map/entry[3]/models.User/ratings/models.Rating[9]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[28]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[29]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[30]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[55]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[56]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[57]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[2]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[3]"/>
                 </ratings>
               </models.Movie>
             </entry>
@@ -901,45 +255,10 @@
                 <fixtureYear>0</fixtureYear>
                 <url>www.orlaith.com</url>
                 <ratings>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[3]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[2]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[3]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[4]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[5]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[6]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[12]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[10]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[11]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[12]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[13]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[14]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[15]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[21]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[19]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[20]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[21]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[22]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[23]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[24]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[31]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[32]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[33]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[58]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[59]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[60]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[4]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[5]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[6]"/>
                 </ratings>
-              </models.Movie>
-            </entry>
-            <entry>
-              <long>35</long>
-              <models.Movie>
-                <id>35</id>
-                <title>deansMovie</title>
-                <year>1996</year>
-                <fixtureYear>0</fixtureYear>
-                <url>www.dean.com</url>
-                <ratings/>
               </models.Movie>
             </entry>
             <entry>
@@ -951,30 +270,10 @@
                 <fixtureYear>0</fixtureYear>
                 <url>www.millie.com</url>
                 <ratings>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[4]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[7]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[13]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[16]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[22]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[25]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[34]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[35]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[36]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[61]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[62]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[63]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[7]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[8]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[9]"/>
                 </ratings>
-              </models.Movie>
-            </entry>
-            <entry>
-              <long>36</long>
-              <models.Movie>
-                <id>36</id>
-                <title>davesMovie</title>
-                <year>2000</year>
-                <fixtureYear>0</fixtureYear>
-                <url>www.dave.com</url>
-                <ratings/>
               </models.Movie>
             </entry>
             <entry>
@@ -986,27 +285,10 @@
                 <fixtureYear>0</fixtureYear>
                 <url>www.algorithms.com</url>
                 <ratings>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[7]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[16]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[25]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[37]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[38]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[39]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[64]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[65]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[66]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[10]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[11]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[12]"/>
                 </ratings>
-              </models.Movie>
-            </entry>
-            <entry>
-              <long>37</long>
-              <models.Movie>
-                <id>37</id>
-                <title>orlaithsMovie</title>
-                <year>1960</year>
-                <fixtureYear>0</fixtureYear>
-                <url>www.orlaith.com</url>
-                <ratings/>
               </models.Movie>
             </entry>
             <entry>
@@ -1018,24 +300,10 @@
                 <fixtureYear>0</fixtureYear>
                 <url>www.kevsmind.org</url>
                 <ratings>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[40]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[41]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[42]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[67]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[68]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[69]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[13]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[14]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[15]"/>
                 </ratings>
-              </models.Movie>
-            </entry>
-            <entry>
-              <long>38</long>
-              <models.Movie>
-                <id>38</id>
-                <title>milliesMovie</title>
-                <year>1995</year>
-                <fixtureYear>0</fixtureYear>
-                <url>www.millie.com</url>
-                <ratings/>
               </models.Movie>
             </entry>
             <entry>
@@ -1047,27 +315,10 @@
                 <fixtureYear>0</fixtureYear>
                 <url>www.spinaltap.com</url>
                 <ratings>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[8]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[16]"/>
                   <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[17]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[26]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[43]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[44]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[45]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[70]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[71]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[72]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[18]"/>
                 </ratings>
-              </models.Movie>
-            </entry>
-            <entry>
-              <long>39</long>
-              <models.Movie>
-                <id>39</id>
-                <title>algorithmsMovie</title>
-                <year>1980</year>
-                <fixtureYear>0</fixtureYear>
-                <url>www.algorithms.com</url>
-                <ratings/>
               </models.Movie>
             </entry>
             <entry>
@@ -1079,27 +330,10 @@
                 <fixtureYear>0</fixtureYear>
                 <url>www.unity.com</url>
                 <ratings>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[9]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[18]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[27]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[46]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[47]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[48]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[73]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[74]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[75]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[19]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[20]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[21]"/>
                 </ratings>
-              </models.Movie>
-            </entry>
-            <entry>
-              <long>40</long>
-              <models.Movie>
-                <id>40</id>
-                <title>kevinsMind</title>
-                <year>1970</year>
-                <fixtureYear>0</fixtureYear>
-                <url>www.kevsmind.org</url>
-                <ratings/>
               </models.Movie>
             </entry>
             <entry>
@@ -1111,27 +345,10 @@
                 <fixtureYear>0</fixtureYear>
                 <url>www.kung-fury.com</url>
                 <ratings>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[6]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[15]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[22]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[23]"/>
                   <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[24]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[49]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[50]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[51]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[76]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[77]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[78]"/>
                 </ratings>
-              </models.Movie>
-            </entry>
-            <entry>
-              <long>41</long>
-              <models.Movie>
-                <id>41</id>
-                <title>spinalTap</title>
-                <year>1983</year>
-                <fixtureYear>0</fixtureYear>
-                <url>www.spinaltap.com</url>
-                <ratings/>
               </models.Movie>
             </entry>
             <entry>
@@ -1143,63 +360,18 @@
                 <fixtureYear>0</fixtureYear>
                 <url>www.nosferatu.com</url>
                 <ratings>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[2]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[8]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[9]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[11]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[17]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[18]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[20]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[26]"/>
-                  <models.Rating reference="../../../../../map/entry[4]/models.User/ratings/models.Rating[27]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[52]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[53]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[54]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[79]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[80]"/>
-                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[81]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[25]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[26]"/>
+                  <models.Rating reference="../../../../../map/entry[2]/models.User/ratings/models.Rating[27]"/>
                 </ratings>
               </models.Movie>
             </entry>
-            <entry>
-              <long>42</long>
-              <models.Movie>
-                <id>42</id>
-                <title>unity3D</title>
-                <year>2007</year>
-                <fixtureYear>0</fixtureYear>
-                <url>www.unity.com</url>
-                <ratings/>
-              </models.Movie>
-            </entry>
-            <entry>
-              <long>43</long>
-              <models.Movie>
-                <id>43</id>
-                <title>kung-fury</title>
-                <year>2015</year>
-                <fixtureYear>0</fixtureYear>
-                <url>www.kung-fury.com</url>
-                <ratings/>
-              </models.Movie>
-            </entry>
-            <entry>
-              <long>44</long>
-              <models.Movie>
-                <id>44</id>
-                <title>nosferatu</title>
-                <year>1922</year>
-                <fixtureYear>0</fixtureYear>
-                <url>www.nosferatu.com</url>
-                <ratings/>
-              </models.Movie>
-            </entry>
           </map>
-          <long>45</long>
-          <null/>
-          <null/>
-          <null/>
-          <null/>
+          <long>11</long>
+          <map reference="../map"/>
+          <long>5</long>
+          <map reference="../map[2]"/>
+          <long>11</long>
           <null/>
           <null/>
         </elementData>

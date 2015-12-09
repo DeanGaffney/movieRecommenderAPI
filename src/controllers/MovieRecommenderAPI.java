@@ -242,7 +242,8 @@ public class MovieRecommenderAPI
 	}
 
 	/*our neighbourhood is created by looping through all users and adding similar users
-	 * into our neighbourhood.
+	 * into our neighbourhood.Similarity is defined by the threshold value,
+	 * if a user is less than the threshold value they should be added to the neighbourhood.
 	 */
 	public ArrayList<User> createNeighbourhood(User activeUser,double similarityThreshold)
 	{
@@ -304,9 +305,10 @@ public class MovieRecommenderAPI
 		if(moviesInCommon > 0)
 		{
 			//this will give me back the average ratings over all movies rated by both users.
+			//i.e a similarity value between the two users over all the movies they have rated.
 			return ratingDifference / moviesInCommon;
 		}
-		//if they have no movies in common I will return a large difference which will indicate they are definitely not 	similar.
+		//if they have no movies in common I will return a large difference which will indicate they are definitely not similar.
 		return Integer.MAX_VALUE;
 	}
 }
